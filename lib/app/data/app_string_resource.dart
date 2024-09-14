@@ -63,11 +63,24 @@ class AppString{
   static String specificDetailsOfInformationRequired = "Specific details of information required";
   static String additionalDocuments = "Additional documents (only pdf up to 5 MB)";
   static String sectionEDeclaration = "Section E:  Declaration";
-  static String submittingClause = "By submitting this application form, I accept and understand that any personal information submitted by me, is to the best of my knowledge both true and correct, and that I understand that any false or inaccurate information or documentation submitted may render the application inadmissable and I may be subject to legal action.";
+  static String submittingClause = "By submitting this application form, I accept and understand that any personal information submitted by me, is to the best of my knowledge both true and correct, and that I understand that any false or inaccurate information or documentation submitted may render the application inadmissible and I may be subject to legal action.";
   static String securityCode = "Security Code";
   static String otpCode = "OTP Code";
   static String sendOTP = "Send OTP";
   static String submit = "Submit";
   static String print = "Print";
   static String returnHome = "Return Home";
+  static String firstAppeal  = "First Appeal";
+  static String firstAppealDescription = "First Appeal Description";
+  static String firstAppealRegistrationNo = "First Appeal Registration No";
+  static String dashboard = "Dashboard";
+  static String  petitionerFirstName = "Petitioner First Name";
+  static String petitionerLastName = "Petitioner Last Name";
+  static String povertyLine = "PovertyLine";
+  static String petitionerAddress= "Petitioner Address";
+  static String uploadedFiles = "Uploaded Files";
+  static String statusUpdated = "Status Updated";
+  static String statusUpdatedBy = "Status Updated by";
+  static String appeal = "Appeal";
+  static String view = "View";
 }
