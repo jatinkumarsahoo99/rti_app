@@ -9,6 +9,8 @@ import 'app/common_widget/rti_drop_down2.dart';
 import 'app/common_widget/rti_text_field.dart';
 import 'app/common_widget/rtx_drop_down_search.dart';
 import 'app/data/app_constant.dart';
+import 'app/module/splash_screen/splash_screen.dart';
+import 'app/screen_routes/screen_routes.dart';
 
 class RtiApp extends StatefulWidget {
   const RtiApp({super.key});
@@ -30,9 +32,9 @@ class _RtiAppState extends State<RtiApp> {
           title: 'RTI APP',
           debugShowCheckedModeBanner: false,
           theme: theme,
-          home: const MyHomePage(
-            title: '',
-          ),
+          routes: ScreenRoutes.appRoutes,
+          home: const SplashScreen(),
+          initialRoute: "/splashScreen",
           builder: (BuildContext context, Widget? child) {
             return Builder(
               builder: (BuildContext context) {
@@ -56,9 +58,7 @@ class _RtiAppState extends State<RtiApp> {
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
+  const MyHomePage({super.key});
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
@@ -133,8 +133,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 },
               ),
               const SizedBox(height: 20),
-              if (_selectedItem != null)
-                Text("Selected: $_selectedItem", style: const TextStyle(fontSize: 18)),
+              if (_selectedItem != null) Text("Selected: $_selectedItem", style: const TextStyle(fontSize: 18)),
               CommonDropdown<String>(
                 items: _items,
                 selectedItem: _selectedItem,
@@ -149,7 +148,6 @@ class _MyHomePageState extends State<MyHomePage> {
                   print("Should not be called since dropdown is disabled");
                 },
               ),
-
               CommonDropdown2<String>(
                 items: _items,
                 selectedItem: _selectedItem,
