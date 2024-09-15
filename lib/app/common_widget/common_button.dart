@@ -56,7 +56,7 @@ class CommonButton extends StatelessWidget {
                           Text(
                             buttonText ?? "",
                             style: TextStyles(context)
-                                .googlePoppinsFontsForButtonText(color: Colors.black,fontWeight: FontWeight.w600,fontSize: 18),
+                                .googlePoppinsFontsForButtonText(color: textColor??Colors.black,fontWeight: FontWeight.w600,fontSize: 18),
                           ),
                       Icon(
                         icon,
@@ -69,7 +69,7 @@ class CommonButton extends StatelessWidget {
                     child: buttonTextWidget ??
                         Text(
                           buttonText ?? "",
-                          style: TextStyles(context).googlePoppinsFontsForButtonText(color: Colors.black,fontWeight: FontWeight.w600,fontSize: 18),
+                          style: TextStyles(context).googlePoppinsFontsForButtonText(color: textColor??Colors.black,fontWeight: FontWeight.w600,fontSize: 18),
                         ),
                   ),
           ),
