@@ -35,17 +35,7 @@ class TextStyles {
         );
   }
 
-  TextStyle googleRubikFontsForHeading({double? fontSize, FontWeight? fontWeight}) {
-    return GoogleFonts.poppins(
-        textStyle:
-            TextStyle(fontWeight: fontWeight ?? FontWeight.w600, fontSize: fontSize ?? 20, color: const Color(0xFF202020)));
-  }
 
-  TextStyle googleRubikFontsForHeading2({double? fontSize, FontWeight? fontWeight}) {
-    return GoogleFonts.poppins(
-        textStyle:
-            TextStyle(fontWeight: fontWeight ?? FontWeight.w600, fontSize: fontSize ?? 20, color: const Color(0xFF515E66)));
-  }
 
   TextStyle googlePoppinsFontsForText({double? fontSize, FontWeight? fontWeight,Color? color}) {
     return GoogleFonts.poppins(
@@ -53,60 +43,26 @@ class TextStyles {
             TextStyle(fontWeight: fontWeight ?? FontWeight.w600, fontSize: fontSize ?? 20, color: color??const Color(0xFF808080)));
   }
 
-  TextStyle googleRubikFontsForText4({double? fontSize, FontWeight? fontWeight}) {
+  TextStyle googleRubikFontsForText4({double? fontSize, FontWeight? fontWeight,Color ? color}) {
     return GoogleFonts.poppins(
         textStyle:
             TextStyle(fontWeight: fontWeight ?? FontWeight.w600, fontSize: fontSize ?? 20, color: const Color(0xFF040415)));
   }
 
-  TextStyle googleRubikFontsForDialog({double? fontSize, FontWeight? fontWeight}) {
+  TextStyle googleRubikFontsForDialog({double? fontSize, FontWeight? fontWeight,Color ? color}) {
     return GoogleFonts.poppins(
-        textStyle: TextStyle(fontWeight: fontWeight ?? FontWeight.w600, fontSize: fontSize ?? 20, color: AppColors.primaryColor));
+        textStyle: TextStyle(fontWeight: fontWeight ?? FontWeight.w600, fontSize: fontSize ?? 20, color: color?? AppColors.primaryColor));
   }
 
-  TextStyle googleRubikFontsForSecondaryText({double? fontSize, FontWeight? fontWeight}) {
+  TextStyle googleRubikFontsForSecondaryText({double? fontSize, FontWeight? fontWeight,Color ? color}) {
     return GoogleFonts.poppins(
         textStyle:
             TextStyle(fontWeight: fontWeight ?? FontWeight.w500, fontSize: fontSize ?? 12, color: const Color(0xFF404040)));
-  }
-
-  TextStyle googleRubikFontsForSecondaryText9({double? fontSize, FontWeight? fontWeight}) {
-    return GoogleFonts.poppins(
-        textStyle:
-            TextStyle(fontWeight: fontWeight ?? FontWeight.w500, fontSize: fontSize ?? 12, color: const Color(0xFF000000)));
   }
 
   TextStyle googlePoppinsFontsForButtonText({double? fontSize, FontWeight? fontWeight,Color? color}) {
     return GoogleFonts.poppins(
         textStyle:
             TextStyle(fontWeight: fontWeight ?? FontWeight.w400, fontSize: fontSize ?? 16, color: color?? const Color(0xFFFFFFFF)));
-  }
-
-  TextStyle googleRubikFontsForText2({double? fontSize, FontWeight? fontWeight}) {
-    return GoogleFonts.poppins(
-        textStyle: TextStyle(
-            fontWeight: fontWeight ?? FontWeight.w500,
-            fontSize: fontSize ?? 16,
-            color: const Color(0xFF2CBFD3),
-            decoration: TextDecoration.underline,
-            decorationColor: const Color(0xFF2CBFD3)));
-  }
-
-  TextStyle googleRubikFontsForText3({double? fontSize, FontWeight? fontWeight}) {
-    return GoogleFonts.poppins(
-        textStyle: TextStyle(
-            fontWeight: fontWeight ?? FontWeight.w500,
-            fontSize: fontSize ?? 16,
-            color: const Color(0xFF2CBFD3),
-            decorationColor: const Color(0xFF2CBFD3)));
-  }
-
-  TextStyle googleRubikFontsForText5({double? fontSize, FontWeight? fontWeight}) {
-    return GoogleFonts.poppins(
-        textStyle: TextStyle(
-            fontWeight: fontWeight ?? FontWeight.w500,
-            fontSize: fontSize ?? 16,
-            color: const Color(0xFF43CC7B),
-            decorationColor: const Color(0xFF43CC7B)));
   }
 }
