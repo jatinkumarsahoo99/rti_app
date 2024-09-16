@@ -10,6 +10,7 @@ import 'app/common_widget/rti_text_field.dart';
 import 'app/common_widget/rtx_drop_down_search.dart';
 import 'app/data/app_constant.dart';
 import 'app/module/splash_screen/splash_screen.dart';
+import 'app/screen_routes/my_route_observer.dart';
 import 'app/screen_routes/screen_routes.dart';
 
 class RtiApp extends StatefulWidget {
@@ -57,7 +58,15 @@ class _RtiAppState extends State<RtiApp> {
       );
     }
     // Default to a MaterialPageRoute if no custom route is found
-    return null;
+    // Handle unknown routes with a custom screen
+    return MaterialPageRoute(
+      builder: (context) => Scaffold(
+        appBar: AppBar(
+          title: const Text('Page Not Found'),
+        ),
+        body: const Center(child: Text('404 - Page Not Found')),
+      ),
+    );
   }
 
   @override
@@ -72,6 +81,8 @@ class _RtiAppState extends State<RtiApp> {
           title: 'RTI APP',
           debugShowCheckedModeBanner: false,
           theme: theme,
+          // Set a custom NavigatorObserver to track route transitions
+          navigatorObservers: [MyRouteObserver()],
           // routes: ScreenRoutes.appRoutes,
           onGenerateRoute: _onGenerateRoute,
           home: const SplashScreen(),

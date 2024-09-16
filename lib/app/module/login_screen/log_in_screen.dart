@@ -80,7 +80,11 @@ class _LogInScreenState extends State<LogInScreen> {
               SizedBox(
                 height: AppConstant.heightBetweenWidget,
               ),
-              Text("Forget password ?",style: TextStyles(context).googlePoppinsFontsForText(fontSize: 13,fontWeight: FontWeight.w400,color: const Color(0xFF1B75BC)),),
+              InkWell(
+                  onTap: (){
+                    Navigator.pushNamed(context, "/forgotPassword");
+                  },
+                  child: Text("Forget password ?",style: TextStyles(context).googlePoppinsFontsForText(fontSize: 13,fontWeight: FontWeight.w400,color: const Color(0xFF1B75BC)),)),
               SizedBox(
                 height: AppConstant.heightBetweenWidget,
               ),

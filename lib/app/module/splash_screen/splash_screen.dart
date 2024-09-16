@@ -11,12 +11,6 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-  @override
-  void initState() {
-    setTimer();
-    super.initState();
-  }
-
   setTimer() {
     Future.delayed(const Duration(seconds: 3), () {
       Navigator.pushNamedAndRemoveUntil(
@@ -34,6 +28,17 @@ class _SplashScreenState extends State<SplashScreen> {
       body: Center(child: Image.asset("assets/images/logo.png",width:size.width*0.8 ,)),
     );
   }*/
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+  }
+  @override
+  void initState() {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      setTimer();
+    });
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
