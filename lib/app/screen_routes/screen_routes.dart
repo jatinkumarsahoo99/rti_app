@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../rti_app.dart';
+import '../module/application_screen/application_screen.dart';
 import '../module/dashboard_screen/dashboard_screen1.dart';
 import '../module/dashboard_screen/dashboard_screen2.dart';
 import '../module/for_got_password/for_got_password.dart';
@@ -21,6 +22,7 @@ class ScreenRoutes{
     '/rtiApplicationStatus':(context) => const RtiApplicationStatus(),
     '/dashboardScreen1':(context) => const DashboardScreen1(),
     '/dashboardScreen2':(context) => const DashboardScreen2(),
+    '/applicationScreen':(context) => const ApplicationScreen(),
   };
 
 }
