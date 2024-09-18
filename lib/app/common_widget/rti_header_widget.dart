@@ -14,7 +14,7 @@ class RtiHeaderWidget extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Image.asset("assets/images/logo.png",width: size.width*0.5,),
-            Image.asset("assets/images/got_logo.png"),
+            Image.asset("assets/images/got_logo.png",width: size.width*0.25,),
           ],
         ),
       ),

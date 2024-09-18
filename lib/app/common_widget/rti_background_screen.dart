@@ -4,7 +4,8 @@ import '../app_theme/app_colors.dart';
 
 class RtiBackgroundScreen extends StatelessWidget {
   final List<Widget> child;
-  const RtiBackgroundScreen({super.key, required this.child});
+  final bool isTopImageVisible;
+  const RtiBackgroundScreen({super.key, required this.child, this.isTopImageVisible = false});
 
   @override
   Widget build(BuildContext context) {
@@ -17,6 +18,20 @@ class RtiBackgroundScreen extends StatelessWidget {
               Expanded(
                 child: Container(
                   color: AppColors.scaffoldBackgroundColor,
+                  child: isTopImageVisible
+                      ? Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            SizedBox(
+                              height: size.height * 0.077,
+                            ),
+                            Image.asset(
+                              'assets/images/blur_bg.png',
+                              height: size.height * 0.13,
+                            ),
+                          ],
+                        )
+                      : null,
                 ),
               ),
               Image.asset(

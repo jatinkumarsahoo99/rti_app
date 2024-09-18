@@ -5,6 +5,19 @@ import 'package:permission_handler/permission_handler.dart';
 import 'package:rti_telangana/app/utils/dialog_helper.dart';
 
 class CoreUtility {
+
+
+  // Function to get greeting based on the current time
+  static String getGreeting() {
+    final hour = DateTime.now().hour;
+    if (hour < 12) {
+      return 'Good Morning';
+    } else if (hour < 17) {
+      return 'Good Afternoon';
+    } else {
+      return 'Good Evening';
+    }
+  }
   /// Method use to convert the base64 string to decode into Uint8List
   /// To show memory image
   static Uint8List? imageBase64ToImageData(String base64image) {
@@ -123,5 +136,6 @@ class _PermissionName {
       ),
     ];
   }
+
 
 }
