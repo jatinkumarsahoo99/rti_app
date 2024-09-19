@@ -76,7 +76,7 @@ class _RtiApplicationStatusState extends State<RtiApplicationStatus> {
                       buttonText: "Search",
                       width: size.width*0.35,
                       onTap: () {
-                        Navigator.pushNamed(context, "/logInScreen");
+                        Navigator.pushNamed(context, "/dashboardScreen1");
                       },
                     ),
                     CommonButton(
@@ -85,7 +85,7 @@ class _RtiApplicationStatusState extends State<RtiApplicationStatus> {
                       width: size.width*0.35,
                       backgroundColor: const Color.fromRGBO(0, 0, 0, 0.58),
                       onTap: () {
-                        Navigator.pushNamed(context, "/logInScreen");
+                        // Navigator.pushNamed(context, "/logInScreen");
                       },
                     ),
                   ],

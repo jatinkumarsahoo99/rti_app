@@ -12,6 +12,8 @@ class CommonButton extends StatelessWidget {
   final bool? isClickable;
   final double radius;
   final double? height;
+  final double? textFontSize;
+  final FontWeight? fontWeight;
   final double? width;
   final bool isIcon;
   final IconData? icon;
@@ -28,7 +30,7 @@ class CommonButton extends StatelessWidget {
       this.height = 60,
       this.width,
       this.icon = Icons.arrow_forward,
-      this.isIcon = false});
+      this.isIcon = false, this.textFontSize, this.fontWeight});
 
   @override
   Widget build(BuildContext context) {
@@ -56,7 +58,7 @@ class CommonButton extends StatelessWidget {
                           Text(
                             buttonText ?? "",
                             style: TextStyles(context)
-                                .googlePoppinsFontsForButtonText(color: textColor??Colors.black,fontWeight: FontWeight.w600,fontSize: 18),
+                                .googlePoppinsFontsForButtonText(color: textColor??Colors.black,fontWeight: fontWeight??FontWeight.w600,fontSize:textFontSize?? 18),
                           ),
                       Icon(
                         icon,
@@ -69,7 +71,7 @@ class CommonButton extends StatelessWidget {
                     child: buttonTextWidget ??
                         Text(
                           buttonText ?? "",
-                          style: TextStyles(context).googlePoppinsFontsForButtonText(color: textColor??Colors.black,fontWeight: FontWeight.w600,fontSize: 18),
+                          style: TextStyles(context).googlePoppinsFontsForButtonText(color: textColor??Colors.black,fontWeight:fontWeight?? FontWeight.w600,fontSize: textFontSize??18),
                         ),
                   ),
           ),
