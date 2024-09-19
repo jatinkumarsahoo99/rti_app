@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:rti_telangana/app/module/rti_application_details_status/rti_application_details_status.dart';
 import 'package:rti_telangana/app/module/rti_application_status/rti_application_status.dart';
 
 import '../../rti_app.dart';
-import '../module/find_rti_application_status/find_rti_application_status.dart';
 import '../module/forgot_password/forgot_password.dart';
 import '../module/intro_screen/intro_screen.dart';
 import '../module/login_screen/login_screen.dart';
@@ -17,8 +17,8 @@ class ScreenRoutes{
     '/registerScreen':(context) => const RegisterScreen(),
     '/logInScreen':(context) => const LogInScreen(),
     '/forgotPassword':(context) => const ForgotPassword(),
-    '/findRtiApplicationStatus':(context) => const FindRtiApplicationStatus(),
-    '/rtiApplicationStatus':(context) => const RtiApplicationStatus(),
+    '/findRtiApplicationStatus':(context) => const RtiApplicationStatus(),
+    '/rtiApplicationStatus':(context) => const RtiApplicationDetailsStatus(),
   };
 
 }
