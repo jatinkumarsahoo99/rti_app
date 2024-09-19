@@ -7,14 +7,14 @@ import '../../common_widget/rti_header_widget.dart';
 import '../../common_widget/rti_text_field.dart';
 import '../../data/app_constant.dart';
 
-class ForGotPassword extends StatefulWidget {
-  const ForGotPassword({super.key});
+class ForgotPassword extends StatefulWidget {
+  const ForgotPassword({super.key});
 
   @override
-  State<ForGotPassword> createState() => _ForGotPasswordState();
+  State<ForgotPassword> createState() => _ForgotPasswordState();
 }
 
-class _ForGotPasswordState extends State<ForGotPassword> {
+class _ForgotPasswordState extends State<ForgotPassword> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
