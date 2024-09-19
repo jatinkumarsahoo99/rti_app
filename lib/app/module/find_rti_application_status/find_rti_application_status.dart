@@ -7,14 +7,14 @@ import '../../common_widget/rti_header_widget.dart';
 import '../../common_widget/rti_text_field.dart';
 import '../../data/app_constant.dart';
 
-class RtiApplicationStatus extends StatefulWidget {
-  const RtiApplicationStatus({super.key});
+class FindRtiApplicationStatus extends StatefulWidget {
+  const FindRtiApplicationStatus({super.key});
 
   @override
-  State<RtiApplicationStatus> createState() => _RtiApplicationStatusState();
+  State<FindRtiApplicationStatus> createState() => _FindRtiApplicationStatusState();
 }
 
-class _RtiApplicationStatusState extends State<RtiApplicationStatus> {
+class _FindRtiApplicationStatusState extends State<FindRtiApplicationStatus> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;

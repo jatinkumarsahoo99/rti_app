@@ -57,7 +57,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                 padding: const EdgeInsets.only(left: 16, right: 16),
                 buttonText: "Password Reset",
                 onTap: () {
-                  Navigator.pushNamed(context, "/rtiApplicationStatus");
+                  Navigator.pushNamed(context, "/findRtiApplicationStatus");
                 },
               ),
             ],
