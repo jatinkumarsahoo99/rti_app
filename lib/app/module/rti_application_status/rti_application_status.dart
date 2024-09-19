@@ -32,8 +32,26 @@ class _RtiApplicationStatus extends State<RtiApplicationStatus> {
     return Scaffold(
       body: RtiBackgroundScreen(
         child: [
-          const RtiHeaderWidget(),
-          RtiCardInfoView(data: applicationStatusInfo.toMap())
+          Column(
+            children: [
+              const RtiHeaderWidget(),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 5),
+                child: Row(mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Text(
+                      AppString.applicationDetails,
+                      style: TextStyles(context).googlePoppinsFontsForText(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w700,
+                          color: const Color.fromRGBO(0, 0, 0, 1)),
+                    ),
+                  ],
+                ),
+              ),
+              RtiCardInfoView(data: applicationStatusInfo.toMap())
+            ],
+          ),
         ],
       ),
     );

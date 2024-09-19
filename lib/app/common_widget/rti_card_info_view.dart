@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../app_theme/text_styles.dart';
+
 class RtiCardInfoView extends StatelessWidget {
   final Map<String, String> data;
 
@@ -7,58 +9,53 @@ class RtiCardInfoView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(builder: (context, constraints) {
-      // Calculate 50% of screen height
-      double cardHeight = constraints.maxHeight * 0.5;
-
-      return Center(
-        child: Card(
-          elevation: 4,
-          margin: const EdgeInsets.all(10),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10),
-          ),
-          child: Padding(
-            padding: const EdgeInsets.all(24.0),
-            child: SizedBox(
-              height: cardHeight,
-              child: SingleChildScrollView(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: data.entries.map(
-                    (entry) {
-                      return Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 8.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              entry.key,
-                              style: const TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 16,
-                                color: Colors.black,
-                              ),
-                            ),
-                            Text(
-                              entry.value,
-                              style: const TextStyle(
-                                fontWeight: FontWeight.normal,
-                                fontSize: 16,
-                                color: Colors.black,
-                              ),
-                            ),
-                          ],
+    Size size = MediaQuery.of(context).size;
+    return Card(
+      elevation: 4,
+      margin: const EdgeInsets.all(2),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
+        child: SizedBox(
+          height: size.height * 0.50,
+          width: size.width * 0.82,
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: data.entries.map(
+                (entry) {
+                  return Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 8.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          entry.key,
+                          style: TextStyles(context).googlePoppinsFontsForText(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w700,
+                            color: const Color.fromRGBO(0, 0, 0, 1),
+                          ),
                         ),
-                      );
-                    },
-                  ).toList(),
-                ),
-              ),
+                        Text(
+                          entry.value,
+                          style: TextStyles(context).googlePoppinsFontsForText(
+                            fontSize: 13,
+                            fontWeight: FontWeight.w400,
+                            color: const Color.fromRGBO(0, 0, 0, 0.8),
+                          ),
+                        ),
+                      ],
+                    ),
+                  );
+                },
+              ).toList(),
             ),
           ),
         ),
-      );
-    });
+      ),
+    );
   }
 }
