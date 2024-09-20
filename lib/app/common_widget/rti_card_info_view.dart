@@ -9,7 +9,9 @@ class RtiCardInfoView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
+    Size size = MediaQuery
+        .of(context)
+        .size;
     return Card(
       elevation: 4,
       margin: const EdgeInsets.all(2),
@@ -22,40 +24,41 @@ class RtiCardInfoView extends StatelessWidget {
           height: size.height * 0.50,
           width: size.width * 0.82,
           child: SingleChildScrollView(
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: data.entries.map(
-                (entry) {
-                  return Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 8.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          entry.key,
-                          style: TextStyles(context).googlePoppinsFontsForText(
-                            fontSize: 14,
-                            fontWeight: FontWeight.w700,
-                            color: const Color.fromRGBO(0, 0, 0, 1),
-                          ),
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: data.entries.map(
+                  (entry) {
+                return Padding(
+                  padding: const EdgeInsets.only(bottom: 16.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        entry.key,
+                        style: TextStyles(context).googlePoppinsFontsForText(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w700,
+                          color: const Color.fromRGBO(0, 0, 0, 1),
                         ),
-                        Text(
-                          entry.value,
-                          style: TextStyles(context).googlePoppinsFontsForText(
-                            fontSize: 13,
-                            fontWeight: FontWeight.w400,
-                            color: const Color.fromRGBO(0, 0, 0, 0.8),
-                          ),
+                      ),
+                      const SizedBox(height: 6),
+                      Text(
+                        entry.value,
+                        style: TextStyles(context).googlePoppinsFontsForText(
+                          fontSize: 13,
+                          fontWeight: FontWeight.w400,
+                          color: const Color.fromRGBO(0, 0, 0, 0.8),
                         ),
-                      ],
-                    ),
-                  );
-                },
-              ).toList(),
-            ),
+                      ),
+                    ],
+                  ),
+                );
+              },
+            ).toList(),
           ),
         ),
       ),
-    );
+    ),);
   }
 }
