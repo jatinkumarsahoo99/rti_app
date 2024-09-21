@@ -1,13 +1,7 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'app/app_theme/app_theme_provider.dart';
-import 'app/common_widget/common_button.dart';
-import 'app/common_widget/rti_drop_down.dart';
-import 'app/common_widget/rti_drop_down2.dart';
-import 'app/common_widget/rti_text_field.dart';
-import 'app/common_widget/rtx_drop_down_search.dart';
 import 'app/data/app_constant.dart';
 import 'app/module/splash_screen/splash_screen.dart';
 import 'app/screen_routes/my_route_observer.dart';

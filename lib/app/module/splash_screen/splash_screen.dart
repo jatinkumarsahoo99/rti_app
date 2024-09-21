@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../app_theme/app_colors.dart';
 import '../../common_widget/rti_background_screen.dart';
 
 class SplashScreen extends StatefulWidget {

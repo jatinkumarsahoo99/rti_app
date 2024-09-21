@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:rti_telangana/app/module/find_rti_application_status/find_rti_application_status.dart';
 import 'package:rti_telangana/app/module/rti_application_details_status/rti_application_details_status.dart';
 
-import '../../rti_app.dart';
 import '../module/application_details/application_details.dart';
 import '../module/application_guidelines/application_guidelines.dart';
 import '../module/application_screen/application_screen.dart';

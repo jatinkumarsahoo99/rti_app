@@ -107,7 +107,7 @@ class _CommonDropdown2State<T> extends State<CommonDropdown2<T>> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  widget.selectedItem != null ? widget.itemLabel(widget.selectedItem!) : widget.hintText,
+                  widget.selectedItem != null ? widget.itemLabel(widget.selectedItem as T) : widget.hintText,
                   style: widget.textStyle ??
                       TextStyles(context).googlePoppinsFontsForText(
                           fontWeight: FontWeight.w400, fontSize: 13, color: const Color.fromRGBO(0, 0, 0, 0.8)),

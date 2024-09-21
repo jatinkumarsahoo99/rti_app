@@ -37,7 +37,7 @@ class _NewApplication3State extends State<NewApplication3> {
               ),
               const NormalText(normalString: "By submitting this application form, I accept and understand that any personal information submitted by me, is to the best of my knowledge both true and correct, and that I understand that any false or inaccurate information or documentation submitted may render the application inadmissable and I may be subject to legal action.",
                 fontSize: 12,fontWeight: FontWeight.w400,padding: EdgeInsets.symmetric(vertical: 4,horizontal: 18),),
-             SizedBox(
+             const SizedBox(
                height: 10,
              ),
               RTITextField(
