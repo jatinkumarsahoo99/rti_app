@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 
-import '../../app_theme/text_styles.dart';
 import '../../common_widget/common_button.dart';
 import '../../common_widget/rti_background_screen.dart';
 import '../../common_widget/rti_card_info_view.dart';
 import '../../common_widget/rti_header_widget.dart';
 import '../../data/app_constant.dart';
 import '../../data/app_string_resource.dart';
-import '../../data/model/ApplicationStatusInfo.dart';
 import '../../data/model/NewApplicationStatusInfo.dart';
 
 class NewApplicationDetails extends StatefulWidget {

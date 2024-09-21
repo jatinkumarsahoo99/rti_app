@@ -7,7 +7,6 @@ import '../../common_widget/rti_card_info_view.dart';
 import '../../common_widget/rti_header_widget.dart';
 import '../../data/app_string_resource.dart';
 import '../../data/model/ApplicationStatusInfo.dart';
-import '../../data/model/NewApplicationStatusInfo.dart';
 
 class ApplicationStatusDetails extends StatefulWidget {
   const ApplicationStatusDetails({super.key});
