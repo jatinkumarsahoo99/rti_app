@@ -13,6 +13,7 @@ import 'app/module/splash_screen/splash_screen.dart';
 import 'app/screen_routes/my_route_observer.dart';
 import 'app/screen_routes/screen_routes.dart';
 
+
 class RtiApp extends StatefulWidget {
   const RtiApp({super.key});
 
