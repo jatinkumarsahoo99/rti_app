@@ -5,8 +5,6 @@ import 'package:rti_telangana/rti_app.dart';
 
 import 'app/app_theme/app_theme.dart';
 import 'app/app_theme/app_theme_provider.dart';
-import 'app/common_widget/common_button.dart';
-import 'app/common_widget/rti_text_field.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();

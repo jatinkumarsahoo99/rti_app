@@ -5,7 +5,6 @@ import 'package:rti_telangana/app/common_widget/rti_header_widget.dart';
 import 'package:rti_telangana/app/data/model/ApplicationStatusInfo.dart';
 
 import '../../app_theme/text_styles.dart';
-import '../../data/app_constant.dart';
 import '../../data/app_string_resource.dart';
 
 class RtiApplicationDetailsStatus extends StatefulWidget {

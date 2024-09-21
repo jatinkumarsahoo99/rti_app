@@ -3,10 +3,8 @@ import 'package:rti_telangana/app/common_widget/common_button.dart';
 import 'package:rti_telangana/app/common_widget/rti_background_screen.dart';
 import 'package:rti_telangana/app/common_widget/rti_card_info_view.dart';
 import 'package:rti_telangana/app/common_widget/rti_header_widget.dart';
-import 'package:rti_telangana/app/data/model/ApplicationStatusInfo.dart';
 
 import '../../app_theme/text_styles.dart';
-import '../../data/app_constant.dart';
 import '../../data/app_string_resource.dart';
 import '../../data/model/AppealStatusInfo.dart';
 import '../../data/model/FirstAppealDetails.dart';

@@ -50,7 +50,7 @@ class FlutterLogs {
     }
   }
 
-  static const MethodChannel channel = const MethodChannel('flutter_logs');
+  static const MethodChannel channel = MethodChannel('flutter_logs');
 
   static Future<String> initLogs(
       {List<LogLevel>? logLevelsEnabled,
@@ -124,7 +124,7 @@ class FlutterLogs {
         bool debug = true,
         int initialDelaySecondsForPublishing = 30}) async {
     if (brokerUrl.isNotEmpty && certificate.isNotEmpty) {
-      final ByteData bytes = await rootBundle.load('$certificate');
+      final ByteData bytes = await rootBundle.load(certificate);
       return await channel.invokeMethod('initMQTT', <String, dynamic>{
         'topic': topic,
         'brokerUrl': brokerUrl,
@@ -138,6 +138,7 @@ class FlutterLogs {
         'initialDelaySecondsForPublishing': initialDelaySecondsForPublishing
       });
     }
+    return null;
   }
 
   static Future<String> setMetaInfo({
@@ -218,7 +219,7 @@ class FlutterLogs {
         'e': error.stackTrace.toString()
       });
       printDebugMessage(result, 2);
-    } else if (errorMessage != null && errorMessage.isNotEmpty) {
+    } else if (errorMessage.isNotEmpty) {
       final String result =
       await channel.invokeMethod('logThis', <String, dynamic>{
         'tag': tag,
@@ -303,7 +304,7 @@ class FlutterLogs {
       });
       printDebugMessage(result, 2);
     } else {
-      print("Error: \'logFileName\' required.");
+      print("Error: 'logFileName' required.");
     }
   }
 
@@ -339,7 +340,7 @@ class FlutterLogs {
       });
       printDebugMessage(result, 2);
     } else {
-      print("Error: \'logFileName\' required.");
+      print("Error: 'logFileName' required.");
     }
   }
 
@@ -360,7 +361,7 @@ class FlutterLogs {
       });
       printDebugMessage(result, 2);
     } else {
-      print("Error: \'logFileName\' required.");
+      print("Error: 'logFileName' required.");
     }
   }
 

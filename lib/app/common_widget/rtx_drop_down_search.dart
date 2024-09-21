@@ -122,7 +122,7 @@ class _CommonDropdownSearchState<T> extends State<CommonDropdownSearch<T>> {
                             },
                           ),
                         ),
-                        Divider(),
+                        const Divider(),
                         ...filteredItems.map((T item) {
                           return PopupMenuItem<T>(
                             value: item,
@@ -133,7 +133,7 @@ class _CommonDropdownSearchState<T> extends State<CommonDropdownSearch<T>> {
                                       fontWeight: FontWeight.w400, fontSize: 13, color: const Color.fromRGBO(0, 0, 0, 0.8)),
                             ),
                           );
-                        }).toList(),
+                        }),
                       ],
                     );
                   }
@@ -159,7 +159,7 @@ class _CommonDropdownSearchState<T> extends State<CommonDropdownSearch<T>> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  widget.selectedItem != null ? widget.itemLabel(widget.selectedItem!) : widget.hintText,
+                  widget.selectedItem != null ? widget.itemLabel(widget.selectedItem as T) : widget.hintText,
                   style: widget.textStyle ??
                       TextStyles(context).googlePoppinsFontsForText(
                           fontWeight: FontWeight.w400, fontSize: 13, color: const Color.fromRGBO(0, 0, 0, 0.8)),
