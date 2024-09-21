@@ -5,12 +5,13 @@ import '../app_theme/text_styles.dart';
 class HeaderText extends StatelessWidget {
   final String headerText;
   final double? fontSize;
-  const HeaderText({super.key, required this.headerText, this.fontSize});
+  final EdgeInsets? padding;
+  const HeaderText({super.key, required this.headerText, this.fontSize, this.padding});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8.0,horizontal: 0),
+      padding: padding??const EdgeInsets.symmetric(vertical: 8.0,horizontal: 0),
       child: Text(
         headerText,
         style: TextStyles(context)

@@ -56,7 +56,7 @@ class _ApplicationGuidelinesState extends State<ApplicationGuidelines> {
                   height: 33,
                   radius: 8,
                   onTap: () {
-                    // Navigator.pushNamed(context, "/rtiApplicationDetailsStatus");
+                    Navigator.pushNamed(context, "/newApplication");
 
                   },
                 ),

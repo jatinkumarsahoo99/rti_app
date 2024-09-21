@@ -7,15 +7,16 @@ class NormalText extends StatelessWidget {
   final double? fontSize;
   final FontWeight? fontWeight;
   final Color? textColor;
-  const NormalText({super.key, required this.normalString, this.fontSize, this.fontWeight, this.textColor});
+  final EdgeInsets? padding;
+  const NormalText({super.key, required this.normalString, this.fontSize, this.fontWeight, this.textColor, this.padding});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 1.0,horizontal: 0),
+      padding: padding??const EdgeInsets.symmetric(vertical: 1.0,horizontal: 0),
       child: Text(
         normalString,
-        maxLines: 3,
+        maxLines: 12,
         style: TextStyles(context)
             .googlePoppinsFontsForButtonText(color:textColor?? const Color(0xFF000000), fontWeight:fontWeight?? FontWeight.w700, fontSize: fontSize ?? 11),
       ),

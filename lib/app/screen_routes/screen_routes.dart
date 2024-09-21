@@ -11,6 +11,9 @@ import '../module/dashboard_screen/dashboard_screen2.dart';
 import '../module/forgot_password/forgot_password.dart';
 import '../module/intro_screen/intro_screen.dart';
 import '../module/login_screen/login_screen.dart';
+import '../module/new_application/new_application.dart';
+import '../module/new_application/new_application2.dart';
+import '../module/new_application/new_application3.dart';
 import '../module/register_screen/register_screen.dart';
 import '../module/splash_screen/splash_screen.dart';
 
@@ -29,6 +32,9 @@ class ScreenRoutes{
     '/rtiApplicationDetailsStatus':(context) => const RtiApplicationDetailsStatus(),
     '/applicationDetails':(context) => const ApplicationDetails(),
     '/applicationGuidelines':(context) => const ApplicationGuidelines(),
+    '/newApplication':(context) => const NewApplication(),
+    '/newApplication2':(context) => const NewApplication2(),
+    '/newApplication3':(context) => const NewApplication3(),
   };
 
 }
