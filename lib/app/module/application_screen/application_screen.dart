@@ -103,7 +103,7 @@ class _ApplicationScreenState extends State<ApplicationScreen> {
                                     ),
                                     child: Text(
                                       app['status'],
-                                      style: TextStyle(color: Colors.white),
+                                      style: const TextStyle(color: Colors.white),
                                     ),
                                   ),
                                 ],
