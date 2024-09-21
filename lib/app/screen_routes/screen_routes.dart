@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:rti_telangana/app/module/find_rti_application_status/find_rti_application_status.dart';
 import 'package:rti_telangana/app/module/first_appeal_details/first_appeal_details.dart';
 import 'package:rti_telangana/app/module/first_appeal_status_details/first_appeal_status_details.dart';
+import 'package:rti_telangana/app/module/new_application/new_application_section_a_b.dart';
 import 'package:rti_telangana/app/module/new_application_details/new_application_details.dart';
 import 'package:rti_telangana/app/module/rti_application_details_status/rti_application_details_status.dart';
 
@@ -31,5 +32,6 @@ class ScreenRoutes {
     '/firstAppealDetails': (context) => const FirstAppealDetails(),
     '/firstAppealStatusDetails':(context) => const FirstAppealStatusDetails(),
     '/newApplicationDetails':(context) => const NewApplicationDetails(),
+    '/newApplicationSectionAB':(context) => const NewApplicationSectionAB(),
   };
 }
