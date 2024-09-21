@@ -35,18 +35,6 @@ class _ApplicationGuidelinesState extends State<ApplicationGuidelines> {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 CommonButton(
-                  padding: const EdgeInsets.only(left: 0, right: 16,top: 10),
-                  buttonText: "Agree",
-                  width:size.width*0.2,
-                  textFontSize: 8,
-                  fontWeight: FontWeight.w600,
-                  height: 33,
-                  radius: 8,
-                  onTap: () {
-
-                  },
-                ),
-                CommonButton(
                   padding: const EdgeInsets.only(left: 0, right: 30,top: 10),
                   buttonText: "Cancel",
                   width:size.width*0.2,
@@ -56,10 +44,25 @@ class _ApplicationGuidelinesState extends State<ApplicationGuidelines> {
                   height: 33,
                   radius: 8,
                   onTap: () {
-                    Navigator.pushNamed(context, "/newApplication");
+                    Navigator.pushNamed(context, "/firstAppealSubmission");
+
+
 
                   },
                 ),
+                CommonButton(
+                  padding: const EdgeInsets.only(left: 0, right: 16,top: 10),
+                  buttonText: "Agree",
+                  width:size.width*0.2,
+                  textFontSize: 8,
+                  fontWeight: FontWeight.w600,
+                  height: 33,
+                  radius: 8,
+                  onTap: () {
+                    Navigator.pushNamed(context, "/paymentDetails");
+                  },
+                ),
+
               ],
             )
           ],

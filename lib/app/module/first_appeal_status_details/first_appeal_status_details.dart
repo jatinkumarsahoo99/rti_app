@@ -5,6 +5,7 @@ import 'package:rti_telangana/app/common_widget/rti_header_widget.dart';
 import 'package:rti_telangana/app/data/model/ApplicationStatusInfo.dart';
 
 import '../../app_theme/text_styles.dart';
+import '../../common_widget/common_button.dart';
 import '../../data/app_constant.dart';
 import '../../data/app_string_resource.dart';
 import '../../data/model/AppealStatusInfo.dart';
@@ -50,7 +51,17 @@ class _FirstAppealStatusDetails extends State<FirstAppealStatusDetails> {
                   ],
                 ),
               ),
-              RtiCardInfoView(data: appealStatusInfo.toMap())
+              RtiCardInfoView(data: appealStatusInfo.toMap()),
+
+              CommonButton(
+                padding: const EdgeInsets.only(left: 16, right: 16,top: 20),
+                buttonText: "Next",
+                // width: size.width * 0.35,
+                // backgroundColor: const Color.fromRGBO(0, 0, 0, 0.58),
+                onTap: () {
+                  Navigator.pushNamed(context, "/applicationGuidelines");
+                },
+              ),
             ],
           ),
         ],

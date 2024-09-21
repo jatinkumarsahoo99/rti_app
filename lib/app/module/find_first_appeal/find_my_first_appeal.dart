@@ -91,7 +91,9 @@ class _FindMyFirstAppeal extends State<FindMyFirstAppeal> {
                       padding: const EdgeInsets.only(left: 16, right: 16),
                       buttonText: AppString.search,
                       width: size.width * 0.35,
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.pushNamed(context, "/firstAppealStatusDetails");
+                      },
                     ),
                     CommonButton(
                       padding: const EdgeInsets.only(left: 16, right: 16),

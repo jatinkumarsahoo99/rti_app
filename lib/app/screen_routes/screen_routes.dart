@@ -8,8 +8,10 @@ import 'package:rti_telangana/app/module/rti_application_details_status/rti_appl
 import '../module/application_details/application_details.dart';
 import '../module/application_guidelines/application_guidelines.dart';
 import '../module/application_screen/application_screen.dart';
+import '../module/application_status_details/application_status_details.dart';
 import '../module/dashboard_screen/dashboard_screen1.dart';
 import '../module/dashboard_screen/dashboard_screen2.dart';
+import '../module/find_first_appeal/find_my_first_appeal.dart';
 import '../module/forgot_password/forgot_password.dart';
 import '../module/intro_screen/intro_screen.dart';
 import '../module/login_screen/login_screen.dart';
@@ -17,6 +19,7 @@ import '../module/new_application/new_application.dart';
 import '../module/new_application/new_application2.dart';
 import '../module/new_application/new_application3.dart';
 import '../module/first_appeal_submission/first_appeal_submission.dart';
+import '../module/payment_details/payment_details.dart';
 import '../module/register_screen/register_screen.dart';
 import '../module/splash_screen/splash_screen.dart';
 
@@ -41,6 +44,10 @@ class ScreenRoutes {
     '/firstAppealDetails': (context) => const FirstAppealDetails(),
     '/firstAppealStatusDetails':(context) => const FirstAppealStatusDetails(),
     '/newApplicationDetails':(context) => const NewApplicationDetails(),
+    '/applicationStatusDetails':(context) => const ApplicationStatusDetails(),
     '/firstAppealSubmission':(context) => const FirstAppealSubmission(),
+    '/findMyFirstAppeal':(context) => const FindMyFirstAppeal(),
+    '/paymentDetails':(context) => const PaymentDetails(),
+
   };
 }

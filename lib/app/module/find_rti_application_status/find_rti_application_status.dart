@@ -91,7 +91,7 @@ class _FindRtiApplicationStatusState extends State<FindRtiApplicationStatus> {
                         buttonText: "Search",
                         width: size.width * 0.35,
                         onTap: () {
-                          Navigator.pushNamed(context, "/dashboardScreen1");
+                          Navigator.pushNamed(context, "/applicationStatusDetails");
                         },
                       ),
                       CommonButton(
