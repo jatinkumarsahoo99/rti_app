@@ -63,6 +63,7 @@ class AppString{
   static String specificDetailsOfInformationRequired = "Specific details of information required";
   static String additionalDocuments = "Additional documents (only pdf up to 5 MB)";
   static String sectionEDeclaration = "Section E:  Declaration";
+  static String sectionBDeclaration = "Section B:  Declaration";
   static String submittingClause = "By submitting this application form, I accept and understand that any personal information submitted by me, is to the best of my knowledge both true and correct, and that I understand that any false or inaccurate information or documentation submitted may render the application inadmissible and I may be subject to legal action.";
   static String securityCode = "Security Code";
   static String otpCode = "OTP Code";
