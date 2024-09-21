@@ -13,6 +13,8 @@ import '../module/dashboard_screen/dashboard_screen2.dart';
 import '../module/forgot_password/forgot_password.dart';
 import '../module/intro_screen/intro_screen.dart';
 import '../module/login_screen/login_screen.dart';
+import '../module/new_application/new_application_section_c_d.dart';
+import '../module/new_application/new_application_section_e.dart';
 import '../module/register_screen/register_screen.dart';
 import '../module/splash_screen/splash_screen.dart';
 
@@ -33,5 +35,7 @@ class ScreenRoutes {
     '/firstAppealStatusDetails':(context) => const FirstAppealStatusDetails(),
     '/newApplicationDetails':(context) => const NewApplicationDetails(),
     '/newApplicationSectionAB':(context) => const NewApplicationSectionAB(),
+    '/newApplicationSectionCD':(context) => const NewApplicationSectionCD(),
+    '/newApplicationSectionE':(context) => const NewApplicationSectionE(),
   };
 }

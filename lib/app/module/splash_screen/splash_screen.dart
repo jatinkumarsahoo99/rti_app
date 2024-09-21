@@ -15,7 +15,7 @@ class _SplashScreenState extends State<SplashScreen> {
     Future.delayed(const Duration(seconds: 3), () {
       Navigator.pushNamedAndRemoveUntil(
         context,
-        "/newApplicationSectionAB",
+        "/newApplicationSectionE",
         (Route<dynamic> route) => false,
       );
     });
