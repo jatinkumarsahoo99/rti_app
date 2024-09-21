@@ -5,7 +5,6 @@ class NewApplicationStatusInfo {
   final String department;
   final String applicationStatus;
   final String applicationStatusUpdated;
-  final String applicationFiledDate;
 
   NewApplicationStatusInfo(
       {required this.registrationNo,
@@ -13,8 +12,7 @@ class NewApplicationStatusInfo {
       required this.lastName,
       required this.department,
       required this.applicationStatus,
-      required this.applicationStatusUpdated,
-      required this.applicationFiledDate});
+      required this.applicationStatusUpdated,});
 
   Map<String, String> toMap() {
     return {
@@ -24,7 +22,6 @@ class NewApplicationStatusInfo {
       'Department': department,
       'Application Status': applicationStatus,
       'Status Updated': applicationStatusUpdated,
-      'Application Filed Date': applicationFiledDate,
     };
   }
 }

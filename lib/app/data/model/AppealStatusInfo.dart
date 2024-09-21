@@ -1,4 +1,4 @@
-class AppealStatusInfo {
+class FirstAppealStatusInfo {
   final String registrationNo;
   final String firstName;
   final String lastName;
@@ -7,7 +7,7 @@ class AppealStatusInfo {
   final String applicationStatusUpdated;
   final String applicationFiledDate;
 
-  AppealStatusInfo(
+  FirstAppealStatusInfo(
       {required this.registrationNo,
       required this.firstName,
       required this.lastName,

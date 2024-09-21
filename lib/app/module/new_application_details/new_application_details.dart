@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 
 import '../../app_theme/text_styles.dart';
+import '../../common_widget/common_button.dart';
 import '../../common_widget/rti_background_screen.dart';
 import '../../common_widget/rti_card_info_view.dart';
 import '../../common_widget/rti_header_widget.dart';
+import '../../data/app_constant.dart';
 import '../../data/app_string_resource.dart';
 import '../../data/model/ApplicationStatusInfo.dart';
 import '../../data/model/NewApplicationStatusInfo.dart';
@@ -24,32 +26,43 @@ class _NewApplicationDetails extends State<NewApplicationDetails> {
       lastName: "Singh",
       department: "Crime Branch CID",
       applicationStatus: "Processing",
-      applicationStatusUpdated: "10/08/2024",
-      applicationFiledDate: "2 Days");
+      applicationStatusUpdated: "10/08/2024");
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Scaffold(
       body: RtiBackgroundScreen(
         child: [
           Column(
             children: [
               const RtiHeaderWidget(),
+              RtiCardInfoView(data: newApplicationStatusInfo.toMap()),
+              SizedBox(height: AppConstant.heightBetweenWidget),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 5),
-                child: Row(mainAxisAlignment: MainAxisAlignment.start,
+                padding:
+                const EdgeInsets.symmetric(horizontal: 16.0,vertical: 10),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
-                      AppString.applicationDetails,
-                      style: TextStyles(context).googlePoppinsFontsForText(
-                          fontSize: 18,
-                          fontWeight: FontWeight.w700,
-                          color: const Color.fromRGBO(0, 0, 0, 1)),
+                    CommonButton(
+                      padding: const EdgeInsets.only(left: 20),
+                      buttonText: AppString.print,
+                      height: 46,
+                      width: size.width * 0.38,
+                      onTap: () {},
+                    ),
+                    CommonButton(
+                      padding: const EdgeInsets.only(right: 20),
+                      buttonText: AppString.returnHome,
+                      height: 46,
+                      width: size.width * 0.38,
+                      backgroundColor: const Color.fromRGBO(0, 0, 0, 0.58),
+                      onTap: () {},
                     ),
                   ],
                 ),
-              ),
-              RtiCardInfoView(data: newApplicationStatusInfo.toMap())
+              )
             ],
           ),
         ],

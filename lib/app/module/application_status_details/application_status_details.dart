@@ -1,25 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:rti_telangana/app/common_widget/rti_background_screen.dart';
-import 'package:rti_telangana/app/common_widget/rti_card_info_view.dart';
-import 'package:rti_telangana/app/common_widget/rti_header_widget.dart';
-import 'package:rti_telangana/app/data/model/ApplicationStatusInfo.dart';
 
 import '../../app_theme/text_styles.dart';
-import '../../data/app_constant.dart';
+import '../../common_widget/rti_background_screen.dart';
+import '../../common_widget/rti_card_info_view.dart';
+import '../../common_widget/rti_header_widget.dart';
 import '../../data/app_string_resource.dart';
-import '../../data/model/AppealStatusInfo.dart';
+import '../../data/model/ApplicationStatusInfo.dart';
+import '../../data/model/NewApplicationStatusInfo.dart';
 
-class FirstAppealStatusDetails extends StatefulWidget {
-  const FirstAppealStatusDetails({super.key});
+class NewApplicationDetails extends StatefulWidget {
+  const NewApplicationDetails({super.key});
 
   @override
-  State<FirstAppealStatusDetails> createState() {
-    return _FirstAppealStatusDetails();
+  State<StatefulWidget> createState() {
+    return _NewApplicationDetails();
   }
 }
 
-class _FirstAppealStatusDetails extends State<FirstAppealStatusDetails> {
-  FirstAppealStatusInfo appealStatusInfo = FirstAppealStatusInfo(
+class _NewApplicationDetails extends State<NewApplicationDetails> {
+  ApplicationStatusInfo applicationStatusInfo = ApplicationStatusInfo(
       registrationNo: "TSRTI/APP/HOM/30/12/23/HO/4027",
       firstName: "Raju",
       lastName: "Singh",
@@ -41,7 +40,7 @@ class _FirstAppealStatusDetails extends State<FirstAppealStatusDetails> {
                 child: Row(mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Text(
-                      AppString.firstAppealDetails,
+                      AppString.applicationDetails,
                       style: TextStyles(context).googlePoppinsFontsForText(
                           fontSize: 18,
                           fontWeight: FontWeight.w700,
@@ -50,7 +49,7 @@ class _FirstAppealStatusDetails extends State<FirstAppealStatusDetails> {
                   ],
                 ),
               ),
-              RtiCardInfoView(data: appealStatusInfo.toMap())
+              RtiCardInfoView(data: applicationStatusInfo.toMap())
             ],
           ),
         ],
