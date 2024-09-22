@@ -1,6 +1,6 @@
 
 
-import '../common_widget/fluttter_logs.dart';
+import '../common_widget/flutter_logs.dart';
 
 class Logger {
   //logs initialization

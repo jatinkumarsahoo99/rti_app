@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'app/app_theme/app_theme_provider.dart';
-import 'app/data/app_constant.dart';
-import 'app/module/splash_screen/splash_screen.dart';
-import 'app/screen_routes/my_route_observer.dart';
-import 'app/screen_routes/screen_routes.dart';
+import '../app_theme/app_theme_provider.dart';
+import '../data/app_constant.dart';
+import '../module/splash_screen/splash_screen.dart';
+import '../screen_routes/my_route_observer.dart';
+import '../screen_routes/screen_routes.dart';
 
 
 class RtiApp extends StatefulWidget {

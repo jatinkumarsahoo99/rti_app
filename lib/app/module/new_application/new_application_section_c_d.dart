@@ -2,27 +2,27 @@ import 'package:flutter/material.dart';
 
 import '../../common_widget/common_button.dart';
 import '../../common_widget/header_text.dart';
-import '../../common_widget/rti_background_screen.dart';
-import '../../common_widget/rti_header_widget.dart';
-import '../../common_widget/rti_text_field.dart';
+import '../../common_widget/app_background_screen.dart';
+import '../../common_widget/app_header_widget.dart';
+import '../../common_widget/app_text_field.dart';
 
-class NewApplication2 extends StatefulWidget {
-  const NewApplication2({super.key});
+class NewApplicationSectionCD extends StatefulWidget {
+  const NewApplicationSectionCD({super.key});
 
   @override
-  State<NewApplication2> createState() => _NewApplication2State();
+  State<NewApplicationSectionCD> createState() => _NewApplicationSectionCDState();
 }
 
-class _NewApplication2State extends State<NewApplication2> {
+class _NewApplicationSectionCDState extends State<NewApplicationSectionCD> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: RtiBackgroundScreen(child: [
+      body: AppBackgroundScreen(child: [
         SingleChildScrollView(
           reverse: true,
           child: Column(
             children: [
-              const RtiHeaderWidget(),
+              const AppHeaderWidget(),
               const Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
@@ -33,7 +33,7 @@ class _NewApplication2State extends State<NewApplication2> {
                   ),
                 ],
               ),
-              RTITextField(
+              AppTextField(
                 controller: TextEditingController(),
                 // errorText: _errorFName,
                 padding: const EdgeInsets.only(left: 25, right: 25,bottom: 5),
@@ -44,7 +44,7 @@ class _NewApplication2State extends State<NewApplication2> {
                 radius: 100,
                 onChanged: (String txt) {},
               ),
-              RTITextField(
+              AppTextField(
                 controller: TextEditingController(),
                 // errorText: _errorFName,
                 padding: const EdgeInsets.only(left: 25, right: 25,bottom: 5),
@@ -55,7 +55,7 @@ class _NewApplication2State extends State<NewApplication2> {
                 radius: 100,
                 onChanged: (String txt) {},
               ),
-              RTITextField(
+              AppTextField(
                 controller: TextEditingController(),
                 // errorText: _errorFName,
                 padding: const EdgeInsets.only(left: 25, right: 25,bottom: 5),
@@ -66,7 +66,7 @@ class _NewApplication2State extends State<NewApplication2> {
                 radius: 100,
                 onChanged: (String txt) {},
               ),
-              RTITextField(
+              AppTextField(
                 controller: TextEditingController(),
                 // errorText: _errorFName,
                 padding: const EdgeInsets.only(left: 25, right: 25,bottom: 5),
@@ -77,7 +77,7 @@ class _NewApplication2State extends State<NewApplication2> {
                 radius: 100,
                 onChanged: (String txt) {},
               ),
-              RTITextField(
+              AppTextField(
                 controller: TextEditingController(),
                 // errorText: _errorFName,
                 padding: const EdgeInsets.only(left: 25, right: 25,bottom: 5),
@@ -88,7 +88,7 @@ class _NewApplication2State extends State<NewApplication2> {
                 radius: 100,
                 onChanged: (String txt) {},
               ),
-              RTITextField(
+              AppTextField(
                 controller: TextEditingController(),
                 // errorText: _errorFName,
                 padding: const EdgeInsets.only(left: 25, right: 25,bottom: 5),
@@ -109,7 +109,7 @@ class _NewApplication2State extends State<NewApplication2> {
                   ),
                 ],
               ),
-              RTITextField(
+              AppTextField(
                 controller: TextEditingController(),
                 // errorText: _errorFName,
                 padding: const EdgeInsets.only(left: 25, right: 25,bottom: 5),
@@ -120,7 +120,7 @@ class _NewApplication2State extends State<NewApplication2> {
                 radius: 100,
                 onChanged: (String txt) {},
               ),
-              RTITextField(
+              AppTextField(
                 controller: TextEditingController(),
                 // errorText: _errorFName,
                 padding: const EdgeInsets.only(left: 25, right: 25,bottom: 5),
@@ -131,7 +131,7 @@ class _NewApplication2State extends State<NewApplication2> {
                 radius: 100,
                 onChanged: (String txt) {},
               ),
-              RTITextField(
+              AppTextField(
                 controller: TextEditingController(),
                 // errorText: _errorFName,
                 padding: const EdgeInsets.only(left: 25, right: 25,bottom: 5),

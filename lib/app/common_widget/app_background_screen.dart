@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 import '../app_theme/app_colors.dart';
 
-class RtiBackgroundScreen extends StatelessWidget {
+class AppBackgroundScreen extends StatelessWidget {
   final List<Widget> child;
   final bool isTopImageVisible;
-  const RtiBackgroundScreen({super.key, required this.child, this.isTopImageVisible = false});
+  const AppBackgroundScreen({super.key, required this.child, this.isTopImageVisible = false});
 
   @override
   Widget build(BuildContext context) {

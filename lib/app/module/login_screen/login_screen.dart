@@ -4,9 +4,9 @@ import '../../app_theme/text_styles.dart';
 import '../../common_widget/captch_container.dart';
 import '../../common_widget/common_button.dart';
 import '../../common_widget/footer_text_widget.dart';
-import '../../common_widget/rti_background_screen.dart';
-import '../../common_widget/rti_header_widget.dart';
-import '../../common_widget/rti_text_field.dart';
+import '../../common_widget/app_background_screen.dart';
+import '../../common_widget/app_header_widget.dart';
+import '../../common_widget/app_text_field.dart';
 import '../../data/app_constant.dart';
 
 class LogInScreen extends StatefulWidget {
@@ -20,13 +20,13 @@ class _LogInScreenState extends State<LogInScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: RtiBackgroundScreen(child: [
+      body: AppBackgroundScreen(child: [
         SingleChildScrollView(
           reverse: true,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const RtiHeaderWidget(),
+              const AppHeaderWidget(),
               Text("RTI Portal Authentication",style: TextStyles(context).googlePoppinsFontsForText(fontSize: 18,fontWeight: FontWeight.w700,color: const Color(0xFF000000)),),
               SizedBox(
                 height: AppConstant.heightBetweenWidget,
@@ -35,7 +35,7 @@ class _LogInScreenState extends State<LogInScreen> {
               SizedBox(
                 height: AppConstant.heightBetweenWidget,
               ),
-              RTITextField(
+              AppTextField(
                 controller: TextEditingController(),
                 // errorText: _errorFName,
                 padding: const EdgeInsets.only(left: 16, right: 16),
@@ -48,7 +48,7 @@ class _LogInScreenState extends State<LogInScreen> {
               SizedBox(
                 height: AppConstant.heightBetweenWidget,
               ),
-              RTITextField(
+              AppTextField(
                 controller: TextEditingController(),
                 // errorText: _errorFName,
                 padding: const EdgeInsets.only(left: 16, right: 16),
@@ -67,7 +67,7 @@ class _LogInScreenState extends State<LogInScreen> {
                   ],
                 ),
               ),
-              RTITextField(
+              AppTextField(
                 controller: TextEditingController(),
                 // errorText: _errorFName,
                 padding: const EdgeInsets.only(left: 16, right: 16),

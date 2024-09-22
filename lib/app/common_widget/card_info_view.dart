@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import '../app_theme/text_styles.dart';
 import 'header_text.dart';
 
-class RtiCardInfoView extends StatelessWidget {
+class CardInfoView extends StatelessWidget {
   final Map<String, String> data;
   final bool? isTitleVisible;
   final String? headerText;
 
-  const RtiCardInfoView({super.key, required this.data, this.isTitleVisible = true, this.headerText});
+  const CardInfoView({super.key, required this.data, this.isTitleVisible = true, this.headerText});
 
   @override
   Widget build(BuildContext context) {

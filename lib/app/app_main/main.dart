@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
-import 'package:rti_telangana/rti_app.dart';
+import 'package:rti_telangana/app/app_main/rti_app.dart';
 
-import 'app/app_theme/app_theme.dart';
-import 'app/app_theme/app_theme_provider.dart';
+import '../app_theme/app_theme.dart';
+import '../app_theme/app_theme_provider.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();

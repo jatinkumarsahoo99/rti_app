@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 import '../../common_widget/common_button.dart';
-import '../../common_widget/rti_background_screen.dart';
-import '../../common_widget/rti_card_info_view.dart';
-import '../../common_widget/rti_header_widget.dart';
+import '../../common_widget/app_background_screen.dart';
+import '../../common_widget/card_info_view.dart';
+import '../../common_widget/app_header_widget.dart';
 
 class ApplicationGuidelines extends StatefulWidget {
   const ApplicationGuidelines({super.key});
@@ -26,11 +26,11 @@ class _ApplicationGuidelinesState extends State<ApplicationGuidelines> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      body: RtiBackgroundScreen(child: [
+      body: AppBackgroundScreen(child: [
         Column(
           children: [
-            const RtiHeaderWidget(),
-            RtiCardInfoView(data: dataMap,isTitleVisible: false,headerText:"GUIDELINES FOR USE OF RTI ONLINE PORTAL"),
+            const AppHeaderWidget(),
+            CardInfoView(data: dataMap,isTitleVisible: false,headerText:"GUIDELINES FOR USE OF RTI ONLINE PORTAL"),
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
