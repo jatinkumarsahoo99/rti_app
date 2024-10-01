@@ -6,9 +6,9 @@ import 'package:rti_telangana/app/module/new_application/new_application_section
 import 'package:rti_telangana/app/module/new_application/new_application_section_c_d.dart';
 import 'package:rti_telangana/app/module/new_application/new_application_section_e.dart';
 import 'package:rti_telangana/app/module/new_application_details/new_application_details.dart';
-import 'package:rti_telangana/app/module/rti_application_details_status/rti_application_details_status.dart';
 
 import '../module/application_details/application_details.dart';
+import '../module/application_details_status/application_details_status.dart';
 import '../module/application_guidelines/application_guidelines.dart';
 import '../module/application_screen/application_screen.dart';
 import '../module/application_status_details/application_status_details.dart';
