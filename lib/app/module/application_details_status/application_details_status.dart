@@ -2,21 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:rti_telangana/app/common_widget/app_background_screen.dart';
 import 'package:rti_telangana/app/common_widget/card_info_view.dart';
 import 'package:rti_telangana/app/common_widget/app_header_widget.dart';
-import 'package:rti_telangana/app/data/model/ApplicationStatusInfo.dart';
 
 import '../../app_theme/text_styles.dart';
 import '../../data/app_string_resource.dart';
+import '../../data/model/ApplicationStatusInfo.dart';
 
-class ApplicationDetailsStatus extends StatefulWidget {
-  const ApplicationDetailsStatus({super.key});
+class RtiApplicationDetailsStatus extends StatefulWidget {
+  const RtiApplicationDetailsStatus({super.key});
 
   @override
-  State<ApplicationDetailsStatus> createState() {
+  State<RtiApplicationDetailsStatus> createState() {
     return _RtiApplicationStatus();
   }
 }
 
-class _RtiApplicationStatus extends State<ApplicationDetailsStatus> {
+class _RtiApplicationStatus extends State<RtiApplicationDetailsStatus> {
   ApplicationStatusInfo applicationStatusInfo = ApplicationStatusInfo(
       registrationNo: "TSRTI/APP/HOM/30/12/23/HO/4027",
       firstName: "Raju",

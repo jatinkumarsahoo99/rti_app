@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:rti_telangana/app/common_widget/app_background_screen.dart';
 
 import '../../app_theme/text_styles.dart';
 import '../../common_widget/common_button.dart';
-import '../../common_widget/app_background_screen.dart';
 import '../../common_widget/app_header_widget.dart';
 
 class IntroScreen extends StatelessWidget {

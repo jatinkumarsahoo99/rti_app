@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:rti_telangana/app/common_widget/app_background_screen.dart';
 
 import '../../app_theme/text_styles.dart';
 import '../../common_widget/common_button.dart';
 import '../../common_widget/footer_text_widget.dart';
-import '../../common_widget/app_background_screen.dart';
 import '../../common_widget/app_header_widget.dart';
 import '../../common_widget/app_text_field.dart';
 import '../../data/app_constant.dart';
@@ -60,8 +60,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 controller: TextEditingController(),
                 // errorText: _errorFName,
                 padding: const EdgeInsets.only(left: 16, right: 16),
-                titleText: "Enter your full name",
-                hintText: "Enter your full name",
+                titleText: "Enter your Email",
+                hintText: "Enter your Email",
                 keyboardType: TextInputType.name,
                 radius: 100,
                 onChanged: (String txt) {},
@@ -73,8 +73,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 controller: TextEditingController(),
                 // errorText: _errorFName,
                 padding: const EdgeInsets.only(left: 16, right: 16),
-                titleText: "Enter your full name",
-                hintText: "Enter your full name",
+                titleText: "Enter Password",
+                hintText: "Enter Password",
                 keyboardType: TextInputType.name,
                 radius: 100,
                 onChanged: (String txt) {},
@@ -86,8 +86,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 controller: TextEditingController(),
                 // errorText: _errorFName,
                 padding: const EdgeInsets.only(left: 16, right: 16),
-                titleText: "Enter your full name",
-                hintText: "Enter your full name",
+                titleText: "Confirm Password",
+                hintText: "Confirm Password",
                 keyboardType: TextInputType.name,
                 radius: 100,
                 onChanged: (String txt) {},

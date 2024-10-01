@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:rti_telangana/app/app_theme/text_styles.dart';
-import 'package:rti_telangana/app/common_widget/common_button.dart';
 import 'package:rti_telangana/app/common_widget/app_background_screen.dart';
+import 'package:rti_telangana/app/common_widget/common_button.dart';
 import 'package:rti_telangana/app/common_widget/app_header_widget.dart';
 import 'package:rti_telangana/app/common_widget/app_text_field.dart';
 import 'package:rti_telangana/app/data/app_string_resource.dart';

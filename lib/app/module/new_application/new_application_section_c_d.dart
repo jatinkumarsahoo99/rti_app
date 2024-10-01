@@ -146,7 +146,7 @@ class _NewApplicationSectionCDState extends State<NewApplicationSectionCD> {
                 padding: const EdgeInsets.only(left: 16, right: 16,top: 10),
                 buttonText: "Next",
                 onTap: () {
-                  Navigator.pushNamed(context, "/newApplication3");
+                  Navigator.pushNamed(context, "/newApplicationSectionE");
                 },
               ),
             ],

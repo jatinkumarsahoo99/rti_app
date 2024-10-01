@@ -74,7 +74,7 @@ class _NewApplicationSectionEState extends State<NewApplicationSectionE> {
                     height: 40,
 
                     onTap: () {
-                      Navigator.pushNamed(context, "/newApplication3");
+                      Navigator.pushNamed(context, "/newApplicationSectionE");
                     },
                   ),
                 ],
@@ -93,7 +93,7 @@ class _NewApplicationSectionEState extends State<NewApplicationSectionE> {
                     width: size.width*0.26,
                     height: 40,
                     onTap: () {
-                      Navigator.pushNamed(context, "/newApplication3");
+                      Navigator.pushNamed(context, "/newApplicationSectionE");
                     },
                   ),
                   CommonButton(
@@ -105,7 +105,7 @@ class _NewApplicationSectionEState extends State<NewApplicationSectionE> {
                     height: 40,
                     backgroundColor:const Color.fromRGBO(0, 0, 0, 0.58) ,
                     onTap: () {
-                      Navigator.pushNamed(context, "/newApplication3");
+                      Navigator.pushNamed(context, "/newApplicationSectionE");
                     },
                   ),
                 ],

@@ -175,7 +175,7 @@ class _NewApplicationSectionABState extends State<NewApplicationSectionAB> {
                 padding: const EdgeInsets.only(left: 16, right: 16,top: 10),
                 buttonText: "Next",
                 onTap: () {
-                  Navigator.pushNamed(context, "/newApplication2");
+                  Navigator.pushNamed(context, "/newApplicationSectionCD");
                 },
               ),
 

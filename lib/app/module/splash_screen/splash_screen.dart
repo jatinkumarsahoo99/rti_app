@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:rti_telangana/app/common_widget/app_background_screen.dart';
 
-import '../../common_widget/app_background_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});

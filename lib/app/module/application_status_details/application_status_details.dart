@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:rti_telangana/app/common_widget/app_background_screen.dart';
+import 'package:rti_telangana/app/data/model/ApplicationStatusInfo.dart';
 
 import '../../app_theme/text_styles.dart';
 import '../../common_widget/common_button.dart';
-import '../../common_widget/app_background_screen.dart';
 import '../../common_widget/card_info_view.dart';
 import '../../common_widget/app_header_widget.dart';
 import '../../data/app_string_resource.dart';
-import '../../data/model/ApplicationStatusInfo.dart';
 
 class ApplicationStatusDetails extends StatefulWidget {
   const ApplicationStatusDetails({super.key});

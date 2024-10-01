@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:rti_telangana/app/common_widget/app_background_screen.dart';
 
 import '../../common_widget/common_button.dart';
 import '../../common_widget/file_image_widget.dart';
 import '../../common_widget/greeting_widget_with_page_name.dart';
 import '../../common_widget/header_text.dart';
 import '../../common_widget/normal_text.dart';
-import '../../common_widget/app_background_screen.dart';
 import '../../common_widget/app_header_widget.dart';
 import '../../common_widget/status_container.dart';
 import '../../common_widget/welcome_widget.dart';
