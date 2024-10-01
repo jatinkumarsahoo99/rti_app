@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:rti_telangana/app/common_widget/app_background_screen.dart';
 
 import '../../common_widget/common_button.dart';
 import '../../common_widget/greeting_widget_with_page_name.dart';
-import '../../common_widget/rti_background_screen.dart';
-import '../../common_widget/rti_header_widget.dart';
+import '../../common_widget/app_header_widget.dart';
 import '../../common_widget/status_container.dart';
 import '../../common_widget/welcome_widget.dart';
 
@@ -56,12 +56,12 @@ class _ApplicationScreenState extends State<ApplicationScreen> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      body: RtiBackgroundScreen(
+      body: AppBackgroundScreen(
         isTopImageVisible: true,
         child: [
           Column(
             children: [
-              const RtiHeaderWidget(),
+              const AppHeaderWidget(),
               const WelcomeWidget(
                 nameString: 'Jatin Kumar',
               ),

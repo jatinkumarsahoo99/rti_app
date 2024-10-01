@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "963114560417",
+    "firebase_url": "https://rti-app-ac7b6-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "rti-app-ac7b6",
+    "storage_bucket": "rti-app-ac7b6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:963114560417:android:1c889c7fa8822d1cf139e0",
+        "android_client_info": {
+          "package_name": "com.telangana.rti.rti_telangana"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBVZf39i0i5OS4todz0H62pOL8DahfiNp4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

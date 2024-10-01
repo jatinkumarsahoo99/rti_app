@@ -3,27 +3,27 @@ import 'package:rti_telangana/app/common_widget/normal_text.dart';
 
 import '../../common_widget/common_button.dart';
 import '../../common_widget/header_text.dart';
-import '../../common_widget/rti_background_screen.dart';
-import '../../common_widget/rti_header_widget.dart';
-import '../../common_widget/rti_text_field.dart';
+import '../../common_widget/app_background_screen.dart';
+import '../../common_widget/app_header_widget.dart';
+import '../../common_widget/app_text_field.dart';
 
-class NewApplication extends StatefulWidget {
-  const NewApplication({super.key});
+class NewApplicationSectionAB extends StatefulWidget {
+  const NewApplicationSectionAB({super.key});
 
   @override
-  State<NewApplication> createState() => _NewApplicationState();
+  State<NewApplicationSectionAB> createState() => _NewApplicationSectionABState();
 }
 
-class _NewApplicationState extends State<NewApplication> {
+class _NewApplicationSectionABState extends State<NewApplicationSectionAB> {
   String? _selectedOption;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: RtiBackgroundScreen(child: [
+      body: AppBackgroundScreen(child: [
         SingleChildScrollView(
           child: Column(
             children: [
-              const RtiHeaderWidget(),
+              const AppHeaderWidget(),
               const Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
@@ -126,7 +126,7 @@ class _NewApplicationState extends State<NewApplication> {
                   ],
                 ),
               ),
-              RTITextField(
+              AppTextField(
                 controller: TextEditingController(),
                 // errorText: _errorFName,
                 padding: const EdgeInsets.only(left: 25, right: 25,bottom: 5),
@@ -137,7 +137,7 @@ class _NewApplicationState extends State<NewApplication> {
                 radius: 100,
                 onChanged: (String txt) {},
               ),
-              RTITextField(
+              AppTextField(
                 controller: TextEditingController(),
                 // errorText: _errorFName,
                 padding: const EdgeInsets.only(left: 25, right: 25,bottom: 5),
@@ -148,7 +148,7 @@ class _NewApplicationState extends State<NewApplication> {
                 radius: 100,
                 onChanged: (String txt) {},
               ),
-              RTITextField(
+              AppTextField(
                 controller: TextEditingController(),
                 // errorText: _errorFName,
                 padding: const EdgeInsets.only(left: 25, right: 25,bottom: 5),
@@ -159,7 +159,7 @@ class _NewApplicationState extends State<NewApplication> {
                 radius: 100,
                 onChanged: (String txt) {},
               ),
-              RTITextField(
+              AppTextField(
                 controller: TextEditingController(),
                 // errorText: _errorFName,
                 padding: const EdgeInsets.only(left: 25, right: 25),
@@ -175,7 +175,7 @@ class _NewApplicationState extends State<NewApplication> {
                 padding: const EdgeInsets.only(left: 16, right: 16,top: 10),
                 buttonText: "Next",
                 onTap: () {
-                  Navigator.pushNamed(context, "/newApplication2");
+                  Navigator.pushNamed(context, "/newApplicationSectionCD");
                 },
               ),
 

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:rti_telangana/app/common_widget/app_background_screen.dart';
 
 import '../../app_theme/text_styles.dart';
 import '../../common_widget/common_button.dart';
 import '../../common_widget/footer_text_widget.dart';
-import '../../common_widget/rti_background_screen.dart';
-import '../../common_widget/rti_header_widget.dart';
-import '../../common_widget/rti_text_field.dart';
+import '../../common_widget/app_header_widget.dart';
+import '../../common_widget/app_text_field.dart';
 import '../../data/app_constant.dart';
 
 class RegisterScreen extends StatefulWidget {
@@ -21,13 +21,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       resizeToAvoidBottomInset: true,
-      body: RtiBackgroundScreen(child: [
+      body: AppBackgroundScreen(child: [
         SingleChildScrollView(
           reverse: true,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const RtiHeaderWidget(),
+              const AppHeaderWidget(),
               SizedBox(
                 height: size.height*0.1,
               ),
@@ -43,7 +43,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                SizedBox(
                 height: AppConstant.heightBetweenWidget,
               ),
-              RTITextField(
+              AppTextField(
                 controller: TextEditingController(),
                 // errorText: _errorFName,
                 padding: const EdgeInsets.only(left: 16, right: 16),
@@ -56,12 +56,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
                SizedBox(
                 height: AppConstant.heightBetweenWidget,
               ),
-              RTITextField(
+              AppTextField(
                 controller: TextEditingController(),
                 // errorText: _errorFName,
                 padding: const EdgeInsets.only(left: 16, right: 16),
-                titleText: "Enter your full name",
-                hintText: "Enter your full name",
+                titleText: "Enter your Email",
+                hintText: "Enter your Email",
                 keyboardType: TextInputType.name,
                 radius: 100,
                 onChanged: (String txt) {},
@@ -69,12 +69,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
                SizedBox(
                 height: AppConstant.heightBetweenWidget,
               ),
-              RTITextField(
+              AppTextField(
                 controller: TextEditingController(),
                 // errorText: _errorFName,
                 padding: const EdgeInsets.only(left: 16, right: 16),
-                titleText: "Enter your full name",
-                hintText: "Enter your full name",
+                titleText: "Enter Password",
+                hintText: "Enter Password",
                 keyboardType: TextInputType.name,
                 radius: 100,
                 onChanged: (String txt) {},
@@ -82,12 +82,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
                SizedBox(
                 height: AppConstant.heightBetweenWidget,
               ),
-              RTITextField(
+              AppTextField(
                 controller: TextEditingController(),
                 // errorText: _errorFName,
                 padding: const EdgeInsets.only(left: 16, right: 16),
-                titleText: "Enter your full name",
-                hintText: "Enter your full name",
+                titleText: "Confirm Password",
+                hintText: "Confirm Password",
                 keyboardType: TextInputType.name,
                 radius: 100,
                 onChanged: (String txt) {},

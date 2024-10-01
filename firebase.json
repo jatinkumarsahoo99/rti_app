@@ -1,0 +1,23 @@
+{
+  "extensions": {},
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "rti-app-ac7b6",
+          "appId": "1:963114560417:android:1c889c7fa8822d1cf139e0",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "rti-app-ac7b6",
+          "configurations": {
+            "android": "1:963114560417:android:1c889c7fa8822d1cf139e0",
+            "ios": "1:963114560417:ios:cb89b9fc2e2ea29cf139e0"
+          }
+        }
+      }
+    }
+  }
+}

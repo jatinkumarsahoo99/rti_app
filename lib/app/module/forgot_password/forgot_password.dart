@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:rti_telangana/app/common_widget/app_background_screen.dart';
 
 import '../../app_theme/text_styles.dart';
 import '../../common_widget/common_button.dart';
-import '../../common_widget/rti_background_screen.dart';
-import '../../common_widget/rti_header_widget.dart';
-import '../../common_widget/rti_text_field.dart';
+import '../../common_widget/app_header_widget.dart';
+import '../../common_widget/app_text_field.dart';
 import '../../data/app_constant.dart';
 
 class ForgotPassword extends StatefulWidget {
@@ -19,12 +19,12 @@ class _ForgotPasswordState extends State<ForgotPassword> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      body: RtiBackgroundScreen(child: [
+      body: AppBackgroundScreen(child: [
         SingleChildScrollView(
           reverse: true,
           child: Column(
             children: [
-              const RtiHeaderWidget(),
+              const AppHeaderWidget(),
               SizedBox(
                 height: size.height*0.1,
               ),
@@ -40,7 +40,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
               SizedBox(
                 height: AppConstant.heightBetweenWidget+40,
               ),
-              RTITextField(
+              AppTextField(
                 controller: TextEditingController(),
                 // errorText: _errorFName,
                 padding: const EdgeInsets.only(left: 16, right: 16),

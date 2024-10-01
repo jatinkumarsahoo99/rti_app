@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:rti_telangana/app/app_theme/text_styles.dart';
+import 'package:rti_telangana/app/common_widget/app_background_screen.dart';
 import 'package:rti_telangana/app/common_widget/common_button.dart';
-import 'package:rti_telangana/app/common_widget/rti_background_screen.dart';
-import 'package:rti_telangana/app/common_widget/rti_header_widget.dart';
-import 'package:rti_telangana/app/common_widget/rti_text_field.dart';
+import 'package:rti_telangana/app/common_widget/app_header_widget.dart';
+import 'package:rti_telangana/app/common_widget/app_text_field.dart';
 import 'package:rti_telangana/app/data/app_string_resource.dart';
 
 import '../../data/app_constant.dart';
@@ -22,12 +22,12 @@ class _FindMyFirstAppeal extends State<FindMyFirstAppeal> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      body: RtiBackgroundScreen(child: [
+      body: AppBackgroundScreen(child: [
         SingleChildScrollView(
           reverse: true,
           child: Column(
             children: [
-              const RtiHeaderWidget(),
+              const AppHeaderWidget(),
               SizedBox(
                 height: size.height * 0.1,
               ),
@@ -57,7 +57,7 @@ class _FindMyFirstAppeal extends State<FindMyFirstAppeal> {
               SizedBox(
                 height: AppConstant.heightBetweenWidget + 40,
               ),
-              RTITextField(
+              AppTextField(
                 controller: TextEditingController(),
                 padding: const EdgeInsets.only(left: 16, right: 16),
                 titleText: AppString.rtiFirstAppealRegNo,
@@ -69,7 +69,7 @@ class _FindMyFirstAppeal extends State<FindMyFirstAppeal> {
               SizedBox(
                 height: AppConstant.heightBetweenWidget,
               ),
-              RTITextField(
+              AppTextField(
                 controller: TextEditingController(),
                 // errorText: _errorFName,
                 padding: const EdgeInsets.only(left: 16, right: 16),

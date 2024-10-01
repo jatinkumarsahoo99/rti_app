@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:rti_telangana/app/common_widget/rti_background_screen.dart';
-import 'package:rti_telangana/app/common_widget/rti_header_widget.dart';
+import 'package:rti_telangana/app/common_widget/app_background_screen.dart';
+import 'package:rti_telangana/app/common_widget/app_header_widget.dart';
 
 import '../../app_theme/text_styles.dart';
 import '../../common_widget/common_button.dart';
 import '../../common_widget/header_text.dart';
-import '../../common_widget/rti_text_field.dart';
+import '../../common_widget/app_text_field.dart';
 import '../../data/app_constant.dart';
 import '../../data/app_string_resource.dart';
 
@@ -22,10 +22,10 @@ class _FirstAppealSubmission extends State<FirstAppealSubmission> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      body: RtiBackgroundScreen(child: [
+      body: AppBackgroundScreen(child: [
         Column(
           children: [
-            const RtiHeaderWidget(),
+            const AppHeaderWidget(),
             Expanded(
               child: SingleChildScrollView(
                 reverse: true,
@@ -54,7 +54,7 @@ class _FirstAppealSubmission extends State<FirstAppealSubmission> {
                         ],
                       ),
 
-                      RTITextField(
+                      AppTextField(
                         controller: TextEditingController(),
                         padding:
                         const EdgeInsets.only(left: 0, right: 0,bottom: 6),
@@ -64,7 +64,7 @@ class _FirstAppealSubmission extends State<FirstAppealSubmission> {
                         radius: 100,
                         onChanged: (String txt) {},
                       ),
-                      RTITextField(
+                      AppTextField(
                         controller: TextEditingController(),
                         padding:
                         const EdgeInsets.only(left: 0, right: 0,bottom: 6),
@@ -74,7 +74,7 @@ class _FirstAppealSubmission extends State<FirstAppealSubmission> {
                         radius: 100,
                         onChanged: (String txt) {},
                       ),
-                      RTITextField(
+                      AppTextField(
                         controller: TextEditingController(),
                         padding:
                         const EdgeInsets.only(left: 0, right: 0,bottom: 15),
@@ -114,7 +114,7 @@ class _FirstAppealSubmission extends State<FirstAppealSubmission> {
                           ),
                           SizedBox(
                               height: AppConstant.heightBetweenWidget + 10),
-                          RTITextField(
+                          AppTextField(
                             controller: TextEditingController(),
                             padding:
                                 const EdgeInsets.only(left: 0, right: 0),
@@ -125,7 +125,7 @@ class _FirstAppealSubmission extends State<FirstAppealSubmission> {
                             onChanged: (String txt) {},
                           ),
                           SizedBox(height: AppConstant.heightBetweenWidget),
-                          RTITextField(
+                          AppTextField(
                             controller: TextEditingController(),
                             padding:
                                 const EdgeInsets.only(left: 0, right: 0),

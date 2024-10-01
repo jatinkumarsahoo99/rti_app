@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:rti_telangana/app/common_widget/app_background_screen.dart';
 
 import '../../app_theme/text_styles.dart';
 import '../../common_widget/common_button.dart';
-import '../../common_widget/rti_background_screen.dart';
-import '../../common_widget/rti_header_widget.dart';
+import '../../common_widget/app_header_widget.dart';
 
 class IntroScreen extends StatelessWidget {
   const IntroScreen({super.key});
@@ -13,12 +13,12 @@ class IntroScreen extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       body: SafeArea(
-        child: RtiBackgroundScreen(child: [
+        child: AppBackgroundScreen(child: [
           Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const RtiHeaderWidget(),
+              const AppHeaderWidget(),
               Image.asset("assets/images/user_rti_image.png"),
               Text("Right To Information - RTI ACT",style: TextStyles(context).googlePoppinsFontsForText(fontSize: 18,fontWeight: FontWeight.w700,color: const Color(0xFF000000)),),
               Padding(

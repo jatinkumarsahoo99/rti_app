@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:rti_telangana/app/common_widget/app_background_screen.dart';
 
 import '../../common_widget/common_button.dart';
-import '../../common_widget/rti_background_screen.dart';
-import '../../common_widget/rti_card_info_view.dart';
-import '../../common_widget/rti_header_widget.dart';
+import '../../common_widget/card_info_view.dart';
+import '../../common_widget/app_header_widget.dart';
 import '../../data/app_constant.dart';
 import '../../data/app_string_resource.dart';
 import '../../data/model/NewApplicationStatusInfo.dart';
@@ -30,12 +30,12 @@ class _NewApplicationDetails extends State<NewApplicationDetails> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      body: RtiBackgroundScreen(
+      body: AppBackgroundScreen(
         child: [
           Column(
             children: [
-              const RtiHeaderWidget(),
-              RtiCardInfoView(data: newApplicationStatusInfo.toMap()),
+              const AppHeaderWidget(),
+              CardInfoView(data: newApplicationStatusInfo.toMap()),
               SizedBox(height: AppConstant.heightBetweenWidget),
               Padding(
                 padding:

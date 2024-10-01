@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../app_theme/app_colors.dart';
 import '../app_theme/text_styles.dart';
 
-class RTITextField extends StatelessWidget {
+class AppTextField extends StatelessWidget {
   final String? titleText;
   final int? maxLength;
   final String hintText;
@@ -20,7 +20,7 @@ class RTITextField extends StatelessWidget {
   final double? radius;
   final BuildContext? contextNew;
 
-  const RTITextField(
+  const AppTextField(
       {super.key,
       this.hintText = '',
       this.isObscureText = false,
