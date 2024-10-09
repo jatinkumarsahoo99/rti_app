@@ -1,6 +1,6 @@
 
 
-import '../common_widget/flutter_logs.dart';
+import 'package:flutter_logs/flutter_logs.dart';
 
 class Logger {
   //logs initialization
@@ -12,8 +12,8 @@ class Logger {
         directoryStructure: DirectoryStructure.FOR_DATE,
         logTypesEnabled: ["device", "network", "errors"],
         logFileExtension: LogFileExtension.LOG,
-        logsWriteDirectoryName: "Bubll User App",
-        logsExportDirectoryName: "Bubll/Exported",
+        logsWriteDirectoryName: "RTI User App",
+        logsExportDirectoryName: "RTI/Exported",
         debugFileOperations: true,
         isDebuggable: true);
   }

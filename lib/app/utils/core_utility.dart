@@ -1,11 +1,41 @@
+import 'dart:math';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:intl/intl.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:rti_telangana/app/utils/dialog_helper.dart';
 
+extension EmailValidator on String {
+  bool isValidEmail() {
+    return RegExp(
+        r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$')
+        .hasMatch(this);
+  }
+}
+
 class CoreUtility {
 
+  static showProgressIndicator() {
+    EasyLoading.show(dismissOnTap: true);
+  }
+
+  static disMissProgressIndicator() {
+    EasyLoading.dismiss();
+  }
+
+  static String generateRandomString(int length) {
+    const String chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#';
+    Random random = Random();
+    StringBuffer buffer = StringBuffer();
+
+    for (int i = 0; i < length; i++) {
+      buffer.write(chars[random.nextInt(chars.length)]);
+    }
+
+    return buffer.toString();
+  }
 
   // Function to get greeting based on the current time
   static String getGreeting() {

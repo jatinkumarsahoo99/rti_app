@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:provider/provider.dart';
 
 import '../app_theme/app_theme_provider.dart';
@@ -6,7 +7,6 @@ import '../data/app_constant.dart';
 import '../module/splash_screen/splash_screen.dart';
 import '../screen_routes/my_route_observer.dart';
 import '../screen_routes/screen_routes.dart';
-
 
 class RtiApp extends StatefulWidget {
   const RtiApp({super.key});
@@ -82,7 +82,7 @@ class _RtiAppState extends State<RtiApp> {
           onGenerateRoute: _onGenerateRoute,
           home: const SplashScreen(),
           initialRoute: "/splashScreen",
-          builder: (BuildContext context, Widget? child) {
+          /* builder: (BuildContext context, Widget? child) {
             return Builder(
               builder: (BuildContext context) {
                 return MediaQuery(
@@ -97,7 +97,13 @@ class _RtiAppState extends State<RtiApp> {
                 );
               },
             );
-          },
+          },*/
+          builder: EasyLoading.init(builder: (context, widget) {
+            return MediaQuery(
+              data: MediaQuery.of(context).copyWith(textScaler: const TextScaler.linear(1.0)),
+              child: widget ?? Container(),
+            );
+          }),
         );
       },
     );

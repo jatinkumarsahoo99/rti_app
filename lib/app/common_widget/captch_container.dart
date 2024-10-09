@@ -14,7 +14,7 @@ class CustomTextWidget extends StatelessWidget {
       height: height ?? 100, // Adjust height as needed
       decoration: BoxDecoration(
         gradient: LinearGradient(
-          colors: [Colors.black, Colors.grey[600]!, Colors.black],
+          colors: [Colors.black.withOpacity(0.2), Colors.grey[600]!, Colors.white],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
         ),
