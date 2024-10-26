@@ -101,10 +101,12 @@ class ShowSnackBar {
     if (overlay == null) {
       return; // Exit if there is no Overlay associated with the current context
     }
+    // Declare overlayEntry first
+    late OverlayEntry overlayEntry;
 
     // Create a StatefulBuilder to handle the animation with TickerProvider
-    final OverlayEntry overlayEntry = OverlayEntry(
-      builder: (context) => _AnimatedSnackBar(message: message),
+     overlayEntry = OverlayEntry(
+      builder: (context) => _AnimatedSnackBar(message: message,overlayEntry:overlayEntry ,),
     );
 
     // Insert the overlay
@@ -121,8 +123,9 @@ class ShowSnackBar {
 
 class _AnimatedSnackBar extends StatefulWidget {
   final String? message;
+  final OverlayEntry overlayEntry; // Add this parameter
 
-  const _AnimatedSnackBar({Key? key, this.message}) : super(key: key);
+  const _AnimatedSnackBar({Key? key, this.message, required this.overlayEntry}) : super(key: key);
 
   @override
   _AnimatedSnackBarState createState() => _AnimatedSnackBarState();
@@ -191,8 +194,10 @@ class _AnimatedSnackBarState extends State<_AnimatedSnackBar>
                 TextButton(
                   onPressed: () {
                     if (mounted) {
-                      _controller.reverse(from: 20).then((_) {
-
+                      _controller.reverse().then((_) {
+                        if (widget.overlayEntry.mounted) {
+                          widget.overlayEntry.remove(); // Remove the overlayEntry
+                        }
                       });
                     }
                   },

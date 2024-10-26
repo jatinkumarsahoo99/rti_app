@@ -28,7 +28,7 @@ class ScreenRoutes {
   static Map<String, WidgetBuilder> appRoutes = {
     "/splashScreen": (context) => const SplashScreen(),
     '/introScreen': (context) => const IntroScreen(),
-    '/registerScreen': (context) => const RegisterScreen(),
+    '/registerScreen':RegisterScreen.builder,
     '/logInScreen': LogInScreen.builder,
     '/forgotPassword': (context) => const ForgotPassword(),
     '/findRtiApplicationStatus': (context) => const FindRtiApplicationStatus(),
