@@ -62,42 +62,42 @@ class _CountsDashboardScreenState extends State<CountsDashboardScreen> {
                         children: [
                           BuildDashboardCard(
                             title: 'Submitted',
-                            count:  context.read<CountsDashboardProvider>().submittedCount.toString(),
+                            count:  context.read<CountsDashboardProvider>().totalSubmittedApplications.toString(),
                             description: 'Total. Applications Submitted',
                           ),
-                          const BuildDashboardCard(
+                           BuildDashboardCard(
                             title: 'Disposed',
-                            count: '4',
+                            count: context.read<CountsDashboardProvider>().totalDisposedApplications.toString(),
                             description: 'Total. Applications Disposed',
                           ),
-                          const BuildDashboardCard(
+                           BuildDashboardCard(
                             title: 'Deemed Refusal',
-                            count: '8',
+                            count: context.read<CountsDashboardProvider>().totalDeemedApplications.toString(),
                             description: 'Total. Applications Deemed Refusal',
                           ),
-                          const BuildDashboardCard(
+                           BuildDashboardCard(
                             title: 'Rejected',
-                            count: '10',
+                            count:context.read<CountsDashboardProvider>().totalRejectedApplications.toString() ,
                             description: 'Total. Applications Rejected',
                           ),
-                          const BuildDashboardCard(
+                           BuildDashboardCard(
                             title: 'Submitted',
-                            count: '7',
+                            count: context.read<CountsDashboardProvider>().totalFirstAppealSubmittedApplications.toString(),
                             description: 'Total. First Appeals Submitted',
                           ),
-                          const BuildDashboardCard(
+                           BuildDashboardCard(
                             title: 'Disposed',
-                            count: '4',
+                            count: context.read<CountsDashboardProvider>().totalFirstAppealDisposedApplications.toString(),
                             description: 'Total. First Appeals Disposed',
                           ),
-                          const BuildDashboardCard(
+                           BuildDashboardCard(
                             title: 'Deemed Refusal',
-                            count: '8',
+                            count: context.read<CountsDashboardProvider>().totalFirstAppealsDeemedApplications.toString(),
                             description: 'Total. First Appeals Deemed Refusal',
                           ),
-                          const BuildDashboardCard(
+                           BuildDashboardCard(
                             title: 'Rejected',
-                            count: '10',
+                            count: context.read<CountsDashboardProvider>().totalFirstAppealsRejectedApplications.toString(),
                             description: 'Total. First Appeals Rejected',
                           ),
                         ],
