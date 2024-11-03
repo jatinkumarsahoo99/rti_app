@@ -3,6 +3,7 @@ class ApiFactory{
   static String baseUrl = "https://rti.telangana.gov.in/api/api/";
   static String logInUrl = "${baseUrl}Account/GetToken";
   static String registerUrl = "${baseUrl}Account/Register";
+  static String userDetails = "${baseUrl}Application/UserDetails";
   static String totalSubmittedApplicationsUrl = "${baseUrl}Application/SubmittedCount";
   static String totalFirstAppealsSubmittedUrl = "${baseUrl}Application/FASubmittedCount";
   static String totalDisposedApplicationsUrl = "${baseUrl}Application/DisposedCount";

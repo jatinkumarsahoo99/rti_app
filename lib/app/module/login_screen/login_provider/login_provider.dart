@@ -1,12 +1,16 @@
+import 'dart:async';
+
 import 'package:flutter/cupertino.dart';
 import 'package:provider/provider.dart';
 import 'package:rti_telangana/app/api_service/api_factory.dart';
 import 'package:rti_telangana/app/common_widget/show_snack_bar.dart';
+import 'package:rti_telangana/app/data/model/UserDetails.dart';
 import 'package:rti_telangana/app/utils/secure_storage.dart';
 
 import '../../../api_service/http_methods.dart';
 import '../../../utils/core_utility.dart';
 import 'login_captcha_provider.dart';
+import 'dart:convert';
 
 class LogInProvider extends ChangeNotifier {
   TextEditingController emailTextEditingController = TextEditingController();
@@ -16,7 +20,7 @@ class LogInProvider extends ChangeNotifier {
   callLogFun(BuildContext context) {
     if (emailTextEditingController.text.trim() == "") {
       ShowSnackBar.showErrorWithAnimation(context, "Please enter your email");
-    } else if (!emailTextEditingController.text.isValidEmail()) {
+    }else if (!emailTextEditingController.text.isValidEmail()) {
       ShowSnackBar.showErrorWithAnimation(context, "Please enter valid email");
     } else if (passwordTextEditingController.text.trim() == "") {
       ShowSnackBar.showErrorWithAnimation(context, "Please enter your password");
@@ -46,7 +50,6 @@ class LogInProvider extends ChangeNotifier {
             } else {
               ShowSnackBar.showErrorWithAnimation(context, "$map");
             }
-            debugPrint(">>>>>>>>>map$map");
           });
     } catch (e) {
       CoreUtility.disMissProgressIndicator();
