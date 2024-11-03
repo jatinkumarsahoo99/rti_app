@@ -7,14 +7,14 @@ import '../../common_widget/pie_chart_widget.dart';
 import '../../common_widget/app_header_widget.dart';
 import '../../common_widget/welcome_widget.dart';
 
-class DashboardScreen2 extends StatefulWidget {
-  const DashboardScreen2({super.key});
+class StaticsDashboardScreen extends StatefulWidget {
+  const StaticsDashboardScreen({super.key});
 
   @override
-  State<DashboardScreen2> createState() => _DashboardScreen2State();
+  State<StaticsDashboardScreen> createState() => _StaticsDashboardScreenState();
 }
 
-class _DashboardScreen2State extends State<DashboardScreen2> {
+class _StaticsDashboardScreenState extends State<StaticsDashboardScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

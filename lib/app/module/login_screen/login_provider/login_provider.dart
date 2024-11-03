@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:provider/provider.dart';
 import 'package:rti_telangana/app/api_service/api_factory.dart';
-import 'package:rti_telangana/app/app_main/main.dart';
 import 'package:rti_telangana/app/common_widget/show_snack_bar.dart';
+import 'package:rti_telangana/app/utils/secure_storage.dart';
 
 import '../../../api_service/http_methods.dart';
 import '../../../utils/core_utility.dart';
@@ -34,10 +34,13 @@ class LogInProvider extends ChangeNotifier {
       HttpMethodsDio().postMethod(
           api: ApiFactory.logInUrl,
           json: {"userName": emailTextEditingController.text, "password": passwordTextEditingController.text},
-          fun: (map, code) {
+          fun: (map, code) async {
             CoreUtility.disMissProgressIndicator();
             if (code == 200 || code == 201) {
-              Navigator.pushNamed(context, "/dashboardScreen1");
+              //Save accessToken in secure storage
+              String accessToken = map['accessToken'];
+              await saveToken(accessToken);
+              Navigator.pushNamed(context, "/countsDashboardScreen");
             }else{
               ShowSnackBar.showErrorWithAnimation(context, "$map");
             }

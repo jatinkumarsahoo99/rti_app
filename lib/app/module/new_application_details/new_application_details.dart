@@ -57,7 +57,7 @@ class _NewApplicationDetails extends State<NewApplicationDetails> {
                       width: size.width * 0.38,
                       backgroundColor: const Color.fromRGBO(0, 0, 0, 0.58),
                       onTap: () {
-                        Navigator.pushNamed(context, "/dashboardScreen1");
+                        Navigator.pushNamed(context, "/countsDashboardScreen");
                       },
                     ),
                   ],

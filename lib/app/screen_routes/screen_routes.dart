@@ -12,8 +12,8 @@ import '../module/application_details_status/application_details_status.dart';
 import '../module/application_guidelines/application_guidelines.dart';
 import '../module/application_screen/application_screen.dart';
 import '../module/application_status_details/application_status_details.dart';
-import '../module/dashboard_screen/dashboard_screen1.dart';
-import '../module/dashboard_screen/dashboard_screen2.dart';
+import '../module/dashboard_screen/counts_dashboard_screen.dart';
+import '../module/dashboard_screen/statics_dashboard_screen.dart';
 import '../module/find_first_appeal/find_my_first_appeal.dart';
 import '../module/forgot_password/forgot_password.dart';
 import '../module/intro_screen/intro_screen.dart';
@@ -32,8 +32,8 @@ class ScreenRoutes {
     '/logInScreen': LogInScreen.builder,
     '/forgotPassword': (context) => const ForgotPassword(),
     '/findRtiApplicationStatus': (context) => const FindRtiApplicationStatus(),
-    '/dashboardScreen1': (context) => const DashboardScreen1(),
-    '/dashboardScreen2': (context) => const DashboardScreen2(),
+    '/countsDashboardScreen': CountsDashboardScreen.builder,
+    '/staticsDashboardScreen': (context) => const StaticsDashboardScreen(),
     '/applicationScreen': (context) => const ApplicationScreen(),
     '/rtiApplicationDetailsStatus': (context) => const RtiApplicationDetailsStatus(),
     '/applicationDetails': (context) => const ApplicationDetails(),
