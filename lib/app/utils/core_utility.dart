@@ -21,6 +21,10 @@ class CoreUtility {
     EasyLoading.show(dismissOnTap: true);
   }
 
+  static showSuccessDialog(String? message){
+    EasyLoading.showSuccess(message??"",duration: const Duration(seconds: 3));
+  }
+
   static disMissProgressIndicator() {
     EasyLoading.dismiss();
   }
