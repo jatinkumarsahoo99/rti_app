@@ -50,7 +50,7 @@ class RegisterProvider extends ChangeNotifier {
     }
   }
 
-  callRegisterApi(BuildContext context){
+  callRegisterApi(BuildContext context) {
     try {
       CoreUtility.showProgressIndicator();
       HttpMethodsDio().postMethod(
@@ -61,7 +61,7 @@ class RegisterProvider extends ChangeNotifier {
             "name": fullNameTextEditingController.text,
             "surname": surNameTextEditingController.text,
             "address": addressTextEditingController.text,
-            "country":countryTextEditingController.text,
+            "country": countryTextEditingController.text,
             "state": stateTextEditingController.text,
             "pin": pinTextEditingController.text,
             "gender": genderTextEditingController.text,
@@ -70,10 +70,12 @@ class RegisterProvider extends ChangeNotifier {
             "createdBy": "string"
           },
           fun: (map, code) {
-            CoreUtility.disMissProgressIndicator();
             if (code == 200 || code == 201) {
-              Navigator.pushNamed(context, "/logInScreen");
-            }else{
+              CoreUtility.disMissProgressIndicator();
+              CoreUtility.showSuccessDialog("Registration Successfully").then((val) {
+                Navigator.pushNamedAndRemoveUntil(context, "/logInScreen", (Route<dynamic> route) => false);
+              });
+            } else {
               ShowSnackBar.showErrorWithAnimation(context, "$map");
             }
             debugPrint(">>>>>>>>>map$map");
@@ -82,6 +84,4 @@ class RegisterProvider extends ChangeNotifier {
       CoreUtility.disMissProgressIndicator();
     }
   }
-
-
 }

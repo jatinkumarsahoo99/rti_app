@@ -31,7 +31,7 @@ class IntroScreen extends StatelessWidget {
                 padding: const EdgeInsets.only(left: 16, right: 16),
                 buttonText: "Get Started",
                 onTap: () {
-                  Navigator.pushNamed(context, "/registerScreen");
+                  Navigator.pushNamed(context, "/logInScreen");
                   // NavigationServices(context).gotoTabScreen();
                 },
               ),

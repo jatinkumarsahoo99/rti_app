@@ -16,7 +16,7 @@ class LogInProvider extends ChangeNotifier {
   callLogFun(BuildContext context) {
     if (emailTextEditingController.text.trim() == "") {
       ShowSnackBar.showErrorWithAnimation(context, "Please enter your email");
-    }else if (!emailTextEditingController.text.isValidEmail()) {
+    } else if (!emailTextEditingController.text.isValidEmail()) {
       ShowSnackBar.showErrorWithAnimation(context, "Please enter valid email");
     } else if (passwordTextEditingController.text.trim() == "") {
       ShowSnackBar.showErrorWithAnimation(context, "Please enter your password");
@@ -38,10 +38,12 @@ class LogInProvider extends ChangeNotifier {
             CoreUtility.disMissProgressIndicator();
             if (code == 200 || code == 201) {
               //Save accessToken in secure storage
-              String accessToken = map['accessToken'];
-              await saveToken(accessToken);
-              Navigator.pushNamed(context, "/countsDashboardScreen");
-            }else{
+              await saveToken(map['accessToken']);
+
+              CoreUtility.showSuccessDialog("Logged In Successfully").then((val) {
+                Navigator.pushNamedAndRemoveUntil(context, "/countsDashboardScreen", (Route<dynamic> route) => false);
+              });
+            } else {
               ShowSnackBar.showErrorWithAnimation(context, "$map");
             }
             debugPrint(">>>>>>>>>map$map");

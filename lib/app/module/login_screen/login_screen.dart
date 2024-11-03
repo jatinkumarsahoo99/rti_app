@@ -148,7 +148,9 @@ class _LogInScreenState extends State<LogInScreen> {
                   height: AppConstant.heightBetweenWidget,
                 ),
                 FooterTextWidget(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.pushNamed(context, "/registerScreen");
+                  },
                   highlightedText: "Sign Up",
                   text: "Don’t have an account ? ",
                 )
