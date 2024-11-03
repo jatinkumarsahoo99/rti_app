@@ -12,7 +12,7 @@ class DialogHelper {
       barrierDismissible: barrierDismissible,
       builder: (BuildContext context) => CustomDialog(
         title: title,
-        topWidget: Image.asset("assets/logo1.png"),
+        topWidget: Image.asset("assets/images/logo.png"),
         description: descriptionText,
         onCloseClick: () {
           Navigator.of(context).pop();

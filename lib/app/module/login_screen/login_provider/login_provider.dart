@@ -42,8 +42,8 @@ class LogInProvider extends ChangeNotifier {
             CoreUtility.disMissProgressIndicator();
             if (code == 200 || code == 201) {
               //Save accessToken in secure storage
-              await saveToken(map['accessToken']);
-
+              await saveDataInLocalStorage(map['accessToken']);
+              await saveDataInLocalStorage( "true",key: "isLogIn");
               CoreUtility.showSuccessDialog("Logged In Successfully").then((val) {
                 Navigator.pushNamedAndRemoveUntil(context, "/countsDashboardScreen", (Route<dynamic> route) => false);
               });

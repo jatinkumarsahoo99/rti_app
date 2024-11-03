@@ -19,11 +19,11 @@ class GreetingWidgetWithPageName extends StatelessWidget {
             style: TextStyles(context)
                 .googlePoppinsFontsForText(fontSize: 14, fontWeight: FontWeight.w600, color: const Color(0xFF000000)),
           ),
-          Text(
+          /*Text(
             CoreUtility.getGreeting(),
             style: TextStyles(context)
                 .googlePoppinsFontsForText(fontSize: 14, fontWeight: FontWeight.w600, color: const Color(0xFF000000)),
-          )
+          )*/
         ],
       ),
     );

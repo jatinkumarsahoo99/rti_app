@@ -99,32 +99,6 @@ class HomeScreenDrawer extends StatelessWidget {
             ),
           ),
           ListTile(
-            onTap: () {},
-            leading: Icon(Icons.person, color: Theme.of(context).primaryColor),
-            title: Text(
-              'Profile',
-              style: TextStyles(context).getRegularStyle().copyWith(fontSize: 15),
-            ),
-            trailing: Icon(
-              Icons.arrow_forward_ios,
-              color: Theme.of(context).primaryColor,
-              size: 15,
-            ),
-          ),
-          ListTile(
-            onTap: () {},
-            leading: Icon(Icons.settings, color: Theme.of(context).primaryColor),
-            title: Text(
-              'Setting',
-              style: TextStyles(context).getRegularStyle().copyWith(fontSize: 15),
-            ),
-            trailing: Icon(
-              Icons.arrow_forward_ios,
-              color: Theme.of(context).primaryColor,
-              size: 15,
-            ),
-          ),
-          ListTile(
             onTap: logOutTap,
             leading: Icon(Icons.logout, color: Theme.of(context).primaryColor),
             title: Text(

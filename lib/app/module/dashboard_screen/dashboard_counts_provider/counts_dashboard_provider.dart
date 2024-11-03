@@ -19,28 +19,27 @@ class CountsDashboardProvider extends ChangeNotifier {
   dynamic totalFirstAppealsDeemedApplications = 0;
   dynamic totalRejectedApplications = 0;
   dynamic totalFirstAppealsRejectedApplications = 0;
+  String? fullName;
+  String? phone;
+  String? email;
+  List<UserDetails> userDetailsList = [];
 
-  callCountsApis(BuildContext context) async {
-
-    await callUserDetailsApi(context);
-
-    totalSubmittedApplications = await getTotalApplicationsCountApi(ApiFactory.totalSubmittedApplicationsUrl,context);
-    totalFirstAppealSubmittedApplications = await getTotalApplicationsCountApi(ApiFactory.totalFirstAppealsSubmittedUrl,context);
-    totalDisposedApplications = await getTotalApplicationsCountApi(ApiFactory.totalDisposedApplicationsUrl,context);
-    totalFirstAppealDisposedApplications= await getTotalApplicationsCountApi(ApiFactory.totalFirstAppealsDisposedUrl,context);
-    totalDeemedApplications= await getTotalApplicationsCountApi(ApiFactory.totalDeemedApplicationsUrl,context);
-    totalFirstAppealsDeemedApplications = await getTotalApplicationsCountApi(ApiFactory.totalFirstAppealsDeemedUrl,context);
-    totalRejectedApplications= await getTotalApplicationsCountApi(ApiFactory.totalRejectedApplicationsUrl,context);
-    totalFirstAppealsRejectedApplications = await getTotalApplicationsCountApi(ApiFactory.totalFirstAppealsRejectedUrl,context);
-    notifyListeners();
-  }
-
-  Future<dynamic> getTotalApplicationsCountApi(String apiUrl,BuildContext context) async {
-    Completer completer = Completer<dynamic>();
+  callDashBoardApis(BuildContext context) async {
     try {
       CoreUtility.showProgressIndicator();
+      await Future.wait([callUserDetailsApi(context), callAllGridApi(context)]);
+      CoreUtility.disMissProgressIndicator();
+      notifyListeners();
+    } catch (e) {
+      ShowSnackBar.showErrorWithAnimation(context, "Something Went Wrong $e");
+    }
+  }
+
+  Future<dynamic> getTotalApplicationsCountApi(String apiUrl, BuildContext context, String key) async {
+    Completer completer = Completer<dynamic>();
+    try {
       // Fetch the token
-      String? accessToken = await getToken();
+      String? accessToken = await getDataFromLocalStorage();
       HttpMethodsDio().getMethodWithToken(
           api: apiUrl,
           token: accessToken,
@@ -49,6 +48,7 @@ class CountsDashboardProvider extends ChangeNotifier {
             if (code == 200 || code == 201) {
               dynamic count = map['data'];
               debugPrint(">>>>>>>>>>>>>Total count: $count");
+              assignValueToVal(key, count);
               completer.complete(count);
             } else {
               ShowSnackBar.showErrorWithAnimation(context, "$map");
@@ -57,7 +57,6 @@ class CountsDashboardProvider extends ChangeNotifier {
             debugPrint(">>>>>>>>>map$map");
           });
     } catch (e) {
-      CoreUtility.disMissProgressIndicator();
       completer.complete(0);
     }
     return completer.future;
@@ -66,9 +65,8 @@ class CountsDashboardProvider extends ChangeNotifier {
   Future<List<UserDetails>> callUserDetailsApi(BuildContext context) async {
     Completer<List<UserDetails>> completer = Completer<List<UserDetails>>();
     try {
-      CoreUtility.showProgressIndicator();
       // Fetch the token
-      String? accessToken = await getToken();
+      String? accessToken = await getDataFromLocalStorage();
       HttpMethodsDio().getMethodWithToken(
           api: ApiFactory.userDetails,
           token: accessToken,
@@ -77,12 +75,15 @@ class CountsDashboardProvider extends ChangeNotifier {
             if (code == 200 || code == 201) {
               // Since the response is a list of user objects, directly parse it as a list
               List<dynamic> data = map;
-              List<UserDetails> userDetailsList =
-              data.map((json) => UserDetails.fromJson(json)).toList();
+               userDetailsList = data.map((json) => UserDetails.fromJson(json)).toList();
               // Save user details to secure storage
-              String userDetailsJson = jsonEncode(
-                  userDetailsList.map((user) => user.toJson()).toList());
+              String userDetailsJson = jsonEncode(userDetailsList.map((user) => user.toJson()).toList());
               await saveUserDetails(userDetailsJson);
+              if(userDetailsList.isNotEmpty) {
+                fullName = "${userDetailsList[0].firstName} ${userDetailsList[0].lastName}";
+                phone = userDetailsList[0].phone;
+                email = userDetailsList[0].email;
+              }
               completer.complete(userDetailsList);
             } else {
               ShowSnackBar.showErrorWithAnimation(context, "$map");
@@ -97,4 +98,47 @@ class CountsDashboardProvider extends ChangeNotifier {
     return completer.future;
   }
 
+  assignValueToVal(String key, dynamic val) {
+    switch (key) {
+      case "totalSubmitted":
+        totalSubmittedApplications = val;
+        break;
+      case "totalFirstAppeal":
+        totalFirstAppealSubmittedApplications = val;
+        break;
+      case "totalDispose":
+        totalDisposedApplications = val;
+        break;
+      case "totalFirstAppealDispose":
+        totalFirstAppealDisposedApplications = val;
+        break;
+      case "totalDeemed":
+        totalDeemedApplications = val;
+        break;
+      case "totalFirstAppealDeemed":
+        totalFirstAppealsDeemedApplications = val;
+        break;
+      case "totalReject":
+        totalRejectedApplications = val;
+        break;
+      case "totalFirstAppealReject":
+        totalFirstAppealsRejectedApplications = val;
+        break;
+      default:
+        break;
+    }
+  }
+
+  Future<void> callAllGridApi(BuildContext context) async {
+    await Future.wait([
+      getTotalApplicationsCountApi(ApiFactory.totalSubmittedApplicationsUrl, context, "totalSubmitted"),
+      getTotalApplicationsCountApi(ApiFactory.totalFirstAppealsSubmittedUrl, context, "totalFirstAppeal"),
+      getTotalApplicationsCountApi(ApiFactory.totalDisposedApplicationsUrl, context, "totalDispose"),
+      getTotalApplicationsCountApi(ApiFactory.totalFirstAppealsDisposedUrl, context, "totalFirstAppealDispose"),
+      getTotalApplicationsCountApi(ApiFactory.totalDeemedApplicationsUrl, context, "totalDeemed"),
+      getTotalApplicationsCountApi(ApiFactory.totalFirstAppealsDeemedUrl, context, "totalFirstAppealDeemed"),
+      getTotalApplicationsCountApi(ApiFactory.totalRejectedApplicationsUrl, context, "totalReject"),
+      getTotalApplicationsCountApi(ApiFactory.totalFirstAppealsRejectedUrl, context, "totalFirstAppealReject")
+    ]);
+  }
 }
