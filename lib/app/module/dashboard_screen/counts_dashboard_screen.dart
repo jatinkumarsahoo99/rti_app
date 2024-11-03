@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:rti_telangana/app/common_widget/app_background_screen.dart';
+import 'package:rti_telangana/app/utils/secure_storage.dart';
 
 import '../../common_widget/common_button.dart';
 import '../../common_widget/greeting_widget_with_page_name.dart';
@@ -24,11 +25,21 @@ class CountsDashboardScreen extends StatefulWidget {
 }
 
 class _CountsDashboardScreenState extends State<CountsDashboardScreen> {
+  String? fullName;
 
   @override
   void initState() {
-    context.read<CountsDashboardProvider>().callCountsApis(context);
     super.initState();
+    context.read<CountsDashboardProvider>().callCountsApis(context);
+    _loadFullName();
+  }
+
+  Future<void> _loadFullName() async{
+    String? name = await getUserFullName();
+    debugPrint(">>>>>>>>>fullname$name");
+    setState(() {
+      fullName = name;
+    });
   }
 
   @override
@@ -41,8 +52,8 @@ class _CountsDashboardScreenState extends State<CountsDashboardScreen> {
             child: Column(
               children: [
                 const AppHeaderWidget(),
-                const WelcomeWidget(
-                  nameString: 'Jatin Kumar',
+                WelcomeWidget(
+                  nameString: fullName ?? 'User',
                 ),
                 const GreetingWidgetWithPageName(
                   pageName: "Dashboard",
