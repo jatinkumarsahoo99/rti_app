@@ -45,7 +45,7 @@ class LogInProvider extends ChangeNotifier {
               await saveDataInLocalStorage(map['accessToken']);
               await saveDataInLocalStorage( "true",key: "isLogIn");
               CoreUtility.showSuccessDialog("Logged In Successfully").then((val) {
-                Navigator.pushNamedAndRemoveUntil(context, "/countsDashboardScreen", (Route<dynamic> route) => false);
+               Navigator.pushNamedAndRemoveUntil(context, "/countsDashboardScreen", (Route<dynamic> route) => false);
               });
             } else {
               ShowSnackBar.showErrorWithAnimation(context, "$map");

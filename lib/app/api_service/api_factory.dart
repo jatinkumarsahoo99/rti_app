@@ -1,15 +1,22 @@
 class ApiFactory{
 
-  static String baseUrl = "https://rti.telangana.gov.in/api/api/";
-  static String logInUrl = "${baseUrl}Account/GetToken";
-  static String registerUrl = "${baseUrl}Account/Register";
-  static String userDetails = "${baseUrl}Application/UserDetails";
-  static String totalSubmittedApplicationsUrl = "${baseUrl}Application/SubmittedCount";
-  static String totalFirstAppealsSubmittedUrl = "${baseUrl}Application/FASubmittedCount";
-  static String totalDisposedApplicationsUrl = "${baseUrl}Application/DisposedCount";
-  static String totalFirstAppealsDisposedUrl = "${baseUrl}Application/FADisposedCount";
-  static String totalDeemedApplicationsUrl = "${baseUrl}Application/DeemedCount";
-  static String totalFirstAppealsDeemedUrl = "${baseUrl}Application/FADeemedCount";
-  static String totalRejectedApplicationsUrl = "${baseUrl}Application/RejectedCount";
-  static String totalFirstAppealsRejectedUrl = "${baseUrl}Application/FARejectedCount";
+  static String baseUrl = "https://rti.telangana.gov.in/api/api";
+
+  static var baseUrlAccount = "$baseUrl/Account";
+
+  static String logInUrl = "$baseUrlAccount/GetToken";
+  static String registerUrl = "$baseUrlAccount/Register";
+
+  static var baseUrlApplication = "$baseUrl/Application";
+
+  static String userDetails = "$baseUrlApplication/UserDetails";
+  static String totalSubmittedApplicationsUrl = "$baseUrlApplication/SubmittedCount";
+  static String totalFirstAppealsSubmittedUrl = "$baseUrlApplication/FASubmittedCount";
+  static String totalDisposedApplicationsUrl = "$baseUrlApplication/DisposedCount";
+  static String totalFirstAppealsDisposedUrl = "$baseUrlApplication/FADisposedCount";
+  static String totalDeemedApplicationsUrl = "$baseUrlApplication/DeemedCount";
+  static String totalFirstAppealsDeemedUrl = "$baseUrlApplication/FADeemedCount";
+  static String totalRejectedApplicationsUrl = "$baseUrlApplication/RejectedCount";
+  static String totalFirstAppealsRejectedUrl = "$baseUrlApplication/FARejectedCount";
+  static String getAllApplications = "$baseUrlApplication/GetAll";
 }

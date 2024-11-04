@@ -8,6 +8,7 @@ import 'package:rti_telangana/app/common_widget/show_snack_bar.dart';
 import 'package:rti_telangana/app/data/model/UserDetails.dart';
 import 'package:rti_telangana/app/utils/secure_storage.dart';
 
+import '../../../data/model/ApplicationInfo.dart';
 import '../../../utils/core_utility.dart';
 
 class CountsDashboardProvider extends ChangeNotifier {
@@ -23,11 +24,38 @@ class CountsDashboardProvider extends ChangeNotifier {
   String? phone;
   String? email;
   List<UserDetails> userDetailsList = [];
+  List<ApplicationInfo> applicationList = [];
+
+  Future<List<ApplicationInfo>> callApplicationListApi(BuildContext context) async{
+    Completer<List<ApplicationInfo>> completer = Completer<List<ApplicationInfo>>();
+    try{
+      String? accessToken = await getDataFromLocalStorage();
+      HttpMethodsDio().getMethodWithToken(api: ApiFactory.getAllApplications, token: accessToken, fun: (map, code) async{
+        CoreUtility.disMissProgressIndicator();
+        if (code == 200 || code == 201) {
+          // Since the response is a list of user objects, directly parse it as a list
+          List<dynamic> data = map;
+          applicationList = data.map((json) => ApplicationInfo.fromJson(json)).toList();
+          completer.complete(applicationList);
+        } else {
+          ShowSnackBar.showErrorWithAnimation(context, "$map");
+          completer.complete([]);
+        }
+        debugPrint(">>>>>>>>>application_list_res:$map");
+        debugPrint(">>>>>>>>>application_list: $applicationList");
+      });
+
+    }catch(e){
+      CoreUtility.disMissProgressIndicator();
+      completer.complete([]);
+    }
+    return completer.future;
+  }
 
   callDashBoardApis(BuildContext context) async {
     try {
       CoreUtility.showProgressIndicator();
-      await Future.wait([callUserDetailsApi(context), callAllGridApi(context)]);
+      await Future.wait([callUserDetailsApi(context), callAllGridApi(context),callApplicationListApi(context)]);
       CoreUtility.disMissProgressIndicator();
       notifyListeners();
     } catch (e) {
@@ -47,14 +75,13 @@ class CountsDashboardProvider extends ChangeNotifier {
             CoreUtility.disMissProgressIndicator();
             if (code == 200 || code == 201) {
               dynamic count = map['data'];
-              debugPrint(">>>>>>>>>>>>>Total count: $count");
               assignValueToVal(key, count);
               completer.complete(count);
             } else {
               ShowSnackBar.showErrorWithAnimation(context, "$map");
               completer.complete(0);
             }
-            debugPrint(">>>>>>>>>map$map");
+            debugPrint(">>>>>>>>>total count res:$map");
           });
     } catch (e) {
       completer.complete(0);
@@ -89,7 +116,7 @@ class CountsDashboardProvider extends ChangeNotifier {
               ShowSnackBar.showErrorWithAnimation(context, "$map");
               completer.complete([]);
             }
-            debugPrint(">>>>>>>>>map$map");
+            debugPrint(">>>>>>>>>user_details_res:$map");
           });
     } catch (e) {
       CoreUtility.disMissProgressIndicator();

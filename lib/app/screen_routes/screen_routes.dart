@@ -7,11 +7,11 @@ import 'package:rti_telangana/app/module/new_application/new_application_section
 import 'package:rti_telangana/app/module/new_application/new_application_section_e.dart';
 import 'package:rti_telangana/app/module/new_application_details/new_application_details.dart';
 
-import '../module/application_details/application_details.dart';
+import '../module/application_details_screen/application_details_screen.dart';
 import '../module/application_details_status/application_details_status.dart';
 import '../module/application_guidelines/application_guidelines.dart';
-import '../module/application_screen/application_screen.dart';
 import '../module/application_status_details/application_status_details.dart';
+import '../module/applications_list_screen/applications_list_screen.dart';
 import '../module/dashboard_screen/counts_dashboard_screen.dart';
 import '../module/dashboard_screen/statics_dashboard_screen.dart';
 import '../module/find_first_appeal/find_my_first_appeal.dart';
@@ -24,7 +24,6 @@ import '../module/register_screen/register_screen.dart';
 import '../module/splash_screen/splash_screen.dart';
 
 class ScreenRoutes {
-  // late BuildContext context;
   static Map<String, WidgetBuilder> appRoutes = {
     "/splashScreen": (context) => const SplashScreen(),
     '/introScreen': (context) => const IntroScreen(),
@@ -34,9 +33,9 @@ class ScreenRoutes {
     '/findRtiApplicationStatus': (context) => const FindRtiApplicationStatus(),
     '/countsDashboardScreen': CountsDashboardScreen.builder,
     '/staticsDashboardScreen': (context) => const StaticsDashboardScreen(),
-    '/applicationScreen': (context) => const ApplicationScreen(),
+    '/applicationsListScreen': ApplicationsListScreen.builder,
     '/rtiApplicationDetailsStatus': (context) => const RtiApplicationDetailsStatus(),
-    '/applicationDetails': (context) => const ApplicationDetails(),
+    '/applicationDetails': (context) => const ApplicationDetailsScreen(),
     '/applicationGuidelines': (context) => const ApplicationGuidelines(),
     '/newApplicationSectionAB': (context) => const NewApplicationSectionAB(),
     '/newApplicationSectionCD': (context) => const NewApplicationSectionCD(),

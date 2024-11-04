@@ -10,14 +10,14 @@ import '../../common_widget/app_header_widget.dart';
 import '../../common_widget/status_container.dart';
 import '../../common_widget/welcome_widget.dart';
 
-class ApplicationDetails extends StatefulWidget {
-  const ApplicationDetails({super.key});
+class ApplicationDetailsScreen extends StatefulWidget {
+  const ApplicationDetailsScreen({super.key});
 
   @override
-  State<ApplicationDetails> createState() => _ApplicationDetailsState();
+  State<ApplicationDetailsScreen> createState() => _ApplicationDetailsScreenState();
 }
 
-class _ApplicationDetailsState extends State<ApplicationDetails> {
+class _ApplicationDetailsScreenState extends State<ApplicationDetailsScreen> {
   final ScrollController _scrollController = ScrollController();
 
   List<Map<String, dynamic>> statusLogList = [

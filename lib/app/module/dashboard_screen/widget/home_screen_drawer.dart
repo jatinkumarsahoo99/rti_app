@@ -8,13 +8,16 @@ class HomeScreenDrawer extends StatelessWidget {
   final String emailAddress;
   final String userId;
   final VoidCallback logOutTap;
+  final VoidCallback applicationListTap;
   final AdvancedDrawerController? advancedDrawerController;
+
   const HomeScreenDrawer(
       {super.key,
       required this.fullName,
       required this.mobileNumber,
       required this.emailAddress,
       required this.logOutTap,
+      required this.applicationListTap,
       required this.advancedDrawerController,
       required this.userId});
 
@@ -99,6 +102,18 @@ class HomeScreenDrawer extends StatelessWidget {
             ),
           ),
           ListTile(
+            onTap: applicationListTap,
+            leading: Icon(Icons.list_alt, color: Theme.of(context).primaryColor),
+            title: Text(
+              'Applications',
+              style: TextStyles(context).getRegularStyle().copyWith(fontSize: 15),
+            ),
+            trailing: Icon(
+              Icons.arrow_forward_ios,
+              color: Theme.of(context).primaryColor,
+              size: 15,
+            ),
+          ),ListTile(
             onTap: logOutTap,
             leading: Icon(Icons.logout, color: Theme.of(context).primaryColor),
             title: Text(

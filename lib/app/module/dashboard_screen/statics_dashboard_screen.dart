@@ -76,7 +76,7 @@ class _StaticsDashboardScreenState extends State<StaticsDashboardScreen> {
                   buttonText: "Next",
                   // backgroundColor: const Color.fromRGBO(0, 0, 0, 0.58),
                   onTap: () {
-                    Navigator.pushNamed(context, "/applicationScreen");
+                    Navigator.pushNamed(context, "/applicationsListScreen");
                   },
                 ),
               ],

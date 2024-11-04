@@ -30,14 +30,16 @@ class CountsDashboardScreen extends StatefulWidget {
 
 class _CountsDashboardScreenState extends State<CountsDashboardScreen>
     with WidgetsBindingObserver, SingleTickerProviderStateMixin {
-  AdvancedDrawerController advancedDrawerController = AdvancedDrawerController();
+  AdvancedDrawerController advancedDrawerController =
+      AdvancedDrawerController();
   AnimationController? animationController;
 
   @override
   void initState() {
     super.initState();
     WidgetsBinding.instance.addObserver(this);
-    animationController = AnimationController(vsync: this, duration: const Duration(milliseconds: 300));
+    animationController = AnimationController(
+        vsync: this, duration: const Duration(milliseconds: 300));
     context.read<CountsDashboardProvider>().callDashBoardApis(context);
   }
 
@@ -73,9 +75,15 @@ class _CountsDashboardScreenState extends State<CountsDashboardScreen>
           child: Consumer<CountsDashboardProvider>(
             builder: (context, provider, child) {
               return HomeScreenDrawer(
-                fullName: context.read<CountsDashboardProvider>().fullName ?? "",
-                mobileNumber: context.read<CountsDashboardProvider>().phone ?? "",
-                emailAddress: context.read<CountsDashboardProvider>().email ?? "",
+                fullName:
+                    context.read<CountsDashboardProvider>().fullName ?? "",
+                mobileNumber:
+                    context.read<CountsDashboardProvider>().phone ?? "",
+                emailAddress:
+                    context.read<CountsDashboardProvider>().email ?? "",
+                applicationListTap: () {
+                  Navigator.pushNamed(context, "/applicationsListScreen");
+                },
                 logOutTap: gotoSplashScreen,
                 advancedDrawerController: advancedDrawerController,
                 userId: "",
@@ -94,7 +102,10 @@ class _CountsDashboardScreenState extends State<CountsDashboardScreen>
                     Consumer<CountsDashboardProvider>(
                       builder: (context, provider, child) {
                         return WelcomeWidget(
-                          nameString: context.read<CountsDashboardProvider>().fullName ?? 'XXXXX',
+                          nameString: context
+                                  .read<CountsDashboardProvider>()
+                                  .fullName ??
+                              'XXXXX',
                           drawerCallBack: () {
                             if (mounted) {
                               advancedDrawerController.showDrawer();
@@ -109,7 +120,8 @@ class _CountsDashboardScreenState extends State<CountsDashboardScreen>
                     // Dashboard Grid
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                      child: Consumer<CountsDashboardProvider>(builder: (context, provider, child) {
+                      child: Consumer<CountsDashboardProvider>(
+                          builder: (context, provider, child) {
                         return GridView.count(
                           physics: const NeverScrollableScrollPhysics(),
                           shrinkWrap: true,
@@ -120,42 +132,67 @@ class _CountsDashboardScreenState extends State<CountsDashboardScreen>
                           children: [
                             BuildDashboardCard(
                               title: 'Submitted',
-                              count: context.read<CountsDashboardProvider>().totalSubmittedApplications.toString(),
+                              count: context
+                                  .read<CountsDashboardProvider>()
+                                  .totalSubmittedApplications
+                                  .toString(),
                               description: 'Total. Applications Submitted',
                             ),
                             BuildDashboardCard(
                               title: 'Disposed',
-                              count: context.read<CountsDashboardProvider>().totalDisposedApplications.toString(),
+                              count: context
+                                  .read<CountsDashboardProvider>()
+                                  .totalDisposedApplications
+                                  .toString(),
                               description: 'Total. Applications Disposed',
                             ),
                             BuildDashboardCard(
                               title: 'Deemed Refusal',
-                              count: context.read<CountsDashboardProvider>().totalDeemedApplications.toString(),
+                              count: context
+                                  .read<CountsDashboardProvider>()
+                                  .totalDeemedApplications
+                                  .toString(),
                               description: 'Total. Applications Deemed Refusal',
                             ),
                             BuildDashboardCard(
                               title: 'Rejected',
-                              count: context.read<CountsDashboardProvider>().totalRejectedApplications.toString(),
+                              count: context
+                                  .read<CountsDashboardProvider>()
+                                  .totalRejectedApplications
+                                  .toString(),
                               description: 'Total. Applications Rejected',
                             ),
                             BuildDashboardCard(
                               title: 'Submitted',
-                              count: context.read<CountsDashboardProvider>().totalFirstAppealSubmittedApplications.toString(),
+                              count: context
+                                  .read<CountsDashboardProvider>()
+                                  .totalFirstAppealSubmittedApplications
+                                  .toString(),
                               description: 'Total. First Appeals Submitted',
                             ),
                             BuildDashboardCard(
                               title: 'Disposed',
-                              count: context.read<CountsDashboardProvider>().totalFirstAppealDisposedApplications.toString(),
+                              count: context
+                                  .read<CountsDashboardProvider>()
+                                  .totalFirstAppealDisposedApplications
+                                  .toString(),
                               description: 'Total. First Appeals Disposed',
                             ),
                             BuildDashboardCard(
                               title: 'Deemed Refusal',
-                              count: context.read<CountsDashboardProvider>().totalFirstAppealsDeemedApplications.toString(),
-                              description: 'Total. First Appeals Deemed Refusal',
+                              count: context
+                                  .read<CountsDashboardProvider>()
+                                  .totalFirstAppealsDeemedApplications
+                                  .toString(),
+                              description:
+                                  'Total. First Appeals Deemed Refusal',
                             ),
                             BuildDashboardCard(
                               title: 'Rejected',
-                              count: context.read<CountsDashboardProvider>().totalFirstAppealsRejectedApplications.toString(),
+                              count: context
+                                  .read<CountsDashboardProvider>()
+                                  .totalFirstAppealsRejectedApplications
+                                  .toString(),
                               description: 'Total. First Appeals Rejected',
                             ),
                           ],
