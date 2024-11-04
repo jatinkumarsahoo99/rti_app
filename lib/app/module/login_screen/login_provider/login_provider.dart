@@ -20,7 +20,7 @@ class LogInProvider extends ChangeNotifier {
   callLogFun(BuildContext context) {
     if (emailTextEditingController.text.trim() == "") {
       ShowSnackBar.showErrorWithAnimation(context, "Please enter your email");
-    }else if (!emailTextEditingController.text.isValidEmail()) {
+    } else if (!emailTextEditingController.text.isValidEmail()) {
       ShowSnackBar.showErrorWithAnimation(context, "Please enter valid email");
     } else if (passwordTextEditingController.text.trim() == "") {
       ShowSnackBar.showErrorWithAnimation(context, "Please enter your password");
@@ -39,13 +39,13 @@ class LogInProvider extends ChangeNotifier {
           api: ApiFactory.logInUrl,
           context: context,
           json: {"userName": emailTextEditingController.text, "password": passwordTextEditingController.text},
-          fun: (map, code)  {
+          fun: (map, code) async {
             CoreUtility.disMissProgressIndicator();
             if (code == 200 || code == 201) {
               //Save accessToken in secure storage
-              setDataInLocalStorage(map);
+              await setDataInLocalStorage(map,context);
               CoreUtility.showSuccessDialog("Logged In Successfully").then((val) {
-                if(context.mounted) {
+                if (context.mounted) {
                   Navigator.pushNamedAndRemoveUntil(context, "/countsDashboardScreen", (Route<dynamic> route) => false);
                 }
               });
@@ -58,12 +58,44 @@ class LogInProvider extends ChangeNotifier {
     }
   }
 
-  setDataInLocalStorage(dynamic map) async {
+  Future<void> setDataInLocalStorage(dynamic map,BuildContext context) async {
+    CoreUtility.showProgressIndicator();
     ApiFactory.apiToken = map['accessToken'];
     await saveDataInLocalStorage(map['accessToken']);
-    await saveDataInLocalStorage( "true",key: "isLogIn");
-    await saveDataInLocalStorage( "${DateTime.now()}",key: "logInTime");
+    await saveDataInLocalStorage("true", key: "isLogIn");
+    await saveDataInLocalStorage("${DateTime.now()}", key: "logInTime");
+    await callUserDetailsApi(context);
+    CoreUtility.disMissProgressIndicator();
   }
 
-
+  Future<dynamic> callUserDetailsApi(BuildContext context) async {
+    Completer<dynamic> completer = Completer<dynamic>();
+    try {
+      // Fetch the token
+      HttpMethodsDio().getMethodWithToken(
+          api: ApiFactory.userDetails,
+          token: ApiFactory.apiToken,
+          context: context,
+          fun: (map, code) async {
+            if (code == 200 || code == 201) {
+              // Since the response is a list of user objects, directly parse it as a list
+              List<dynamic> data = map;
+              List<UserDetails> userDetailsList = data.map((json) => UserDetails.fromJson(json)).toList();
+              // Save user details to secure storage
+              if (userDetailsList.isNotEmpty) {
+                String userDetailsJson = jsonEncode(userDetailsList[0]);
+                await saveUserDetails(userDetailsJson);
+              }
+              completer.complete("");
+            } else {
+              ShowSnackBar.showErrorWithAnimation(context, "$map");
+              completer.complete("");
+            }
+            debugPrint(">>>>>>>>>user_details_res:$map");
+          });
+    } catch (e) {
+      completer.complete("");
+    }
+    return completer.future;
+  }
 }

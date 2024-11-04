@@ -6,11 +6,14 @@ import 'package:rti_telangana/app/common_widget/app_background_screen.dart';
 import 'package:rti_telangana/app/module/dashboard_screen/provider/statics_dashbard_provider.dart';
 import 'package:rti_telangana/app/module/dashboard_screen/widget/home_screen_drawer.dart';
 
+import '../../common_provider/user_details_provider.dart';
 import '../../common_widget/common_button.dart';
+import '../../common_widget/drawer_widget.dart';
 import '../../common_widget/greeting_widget_with_page_name.dart';
 import '../../common_widget/pie_chart_widget.dart';
 import '../../common_widget/app_header_widget.dart';
 import '../../common_widget/welcome_widget.dart';
+import '../../utils/core_utility.dart';
 import '../../utils/dialog_helper.dart';
 import '../../utils/secure_storage.dart';
 
@@ -19,7 +22,10 @@ class StaticsDashboardScreen extends StatefulWidget {
 
   static Widget builder(BuildContext context) {
     return MultiProvider(
-      providers: [ChangeNotifierProvider(create: (context) => StaticsDashboardProvider())],
+      providers: [
+        ChangeNotifierProvider(create: (context) => StaticsDashboardProvider()),
+        ChangeNotifierProvider(create: (context) => UserDetailsProvider()),
+      ],
       child: const StaticsDashboardScreen(),
     );
   }
@@ -28,15 +34,11 @@ class StaticsDashboardScreen extends StatefulWidget {
   State<StaticsDashboardScreen> createState() => _StaticsDashboardScreenState();
 }
 
-class _StaticsDashboardScreenState extends State<StaticsDashboardScreen>
-    with WidgetsBindingObserver, SingleTickerProviderStateMixin {
+class _StaticsDashboardScreenState extends State<StaticsDashboardScreen> {
   AdvancedDrawerController advancedDrawerController = AdvancedDrawerController();
-  AnimationController? animationController;
 
   @override
   void initState() {
-    WidgetsBinding.instance.addObserver(this);
-    animationController = AnimationController(vsync: this, duration: const Duration(milliseconds: 300));
     // Ensure context is available by using addPostFrameCallback
     WidgetsBinding.instance.addPostFrameCallback((_) {
       context.read<StaticsDashboardProvider>().callAllStaticsApis(context);
@@ -46,41 +48,8 @@ class _StaticsDashboardScreenState extends State<StaticsDashboardScreen>
 
   @override
   Widget build(BuildContext context) {
-    return AdvancedDrawer(
-      backdrop: const SizedBox(
-        width: double.infinity,
-        height: double.infinity,
-      ),
-      controller: advancedDrawerController,
-      animationCurve: Curves.easeInOut,
-      animationDuration: const Duration(milliseconds: 150),
-      animationController: animationController,
-      animateChildDecoration: true,
-      key: GlobalKey(),
-      rtlOpening: false,
-      // openScale: 1.0,
-      disabledGestures: true,
-      backdropColor: Colors.white,
-      childDecoration: const BoxDecoration(
-        borderRadius: BorderRadius.all(Radius.circular(16)),
-        color: Colors.red,
-      ),
-      drawer: SafeArea(
-        child: Consumer<StaticsDashboardProvider>(
-          builder: (context, provider, child) {
-            return HomeScreenDrawer(
-              fullName: context.read<StaticsDashboardProvider>().userDetails?.firstName ?? "",
-              mobileNumber: context.read<StaticsDashboardProvider>().userDetails?.phone ?? "",
-              emailAddress: context.read<StaticsDashboardProvider>().userDetails?.email ?? "",
-              applicationListTap:(){ Navigator.pushNamed(context, "/applicationsListScreen");} ,
-              logOutTap: gotoSplashScreen,
-              advancedDrawerController: advancedDrawerController,
-              userId: "",
-            );
-          },
-        ),
-      ),
-      child: Scaffold(
+    return DrawerWidget(
+      widget: Scaffold(
         body: AppBackgroundScreen(
           isTopImageVisible: true,
           child: [
@@ -88,10 +57,10 @@ class _StaticsDashboardScreenState extends State<StaticsDashboardScreen>
               child: Column(
                 children: [
                   const AppHeaderWidget(),
-                  Consumer<StaticsDashboardProvider>(
+                  Consumer<UserDetailsProvider>(
                     builder: (context, provider, child) {
                       return WelcomeWidget(
-                        nameString: context.read<StaticsDashboardProvider>().userDetails?.firstName ?? "",
+                        nameString: context.read<UserDetailsProvider>().userDetails?.firstName ?? "",
                         drawerCallBack: () {
                           if (mounted) {
                             advancedDrawerController.showDrawer();
@@ -169,31 +138,15 @@ class _StaticsDashboardScreenState extends State<StaticsDashboardScreen>
           ],
         ),
       ),
+      logOutTap: (){
+        CoreUtility.gotoLogInScreen(context);
+      },
+      applicationListTap: () {
+        Navigator.pushNamed(context, "/applicationsListScreen");
+      },
+      getDrawerController: (AdvancedDrawerController controller) {
+        advancedDrawerController = controller;
+      },
     );
-  }
-
-  void gotoSplashScreen() async {
-    bool isOk = await DialogHelper.showCommonPopupNew(
-      "Are you sure?",
-      "You want to Sign Out?.",
-      context,
-      barrierDismissible: true,
-      isYesOrNoPopup: true,
-    );
-    if (isOk) {
-      await saveDataInLocalStorage("false", key: "isLogIn");
-      Navigator.pushNamedAndRemoveUntil(
-        context,
-        "/logInScreen",
-        (Route<dynamic> route) => false,
-      );
-    }
-  }
-
-
-  @override
-  void dispose() {
-    animationController?.dispose();
-    super.dispose();
   }
 }

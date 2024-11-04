@@ -30,7 +30,7 @@ class CountsDashboardProvider extends ChangeNotifier {
   callDashBoardApis(BuildContext context) async {
     try {
       CoreUtility.showProgressIndicator();
-      await Future.wait([callUserDetailsApi(context), callAllGridApi(context)]);
+      await Future.wait([callAllGridApi(context)]);
       CoreUtility.disMissProgressIndicator();
       notifyListeners();
     } catch (e) {
@@ -64,43 +64,6 @@ class CountsDashboardProvider extends ChangeNotifier {
     return completer.future;
   }
 
-  Future<List<UserDetails>> callUserDetailsApi(BuildContext context) async {
-    Completer<List<UserDetails>> completer = Completer<List<UserDetails>>();
-    try {
-      // Fetch the token
-      HttpMethodsDio().getMethodWithToken(
-          api: ApiFactory.userDetails,
-          token: ApiFactory.apiToken,
-          context: context,
-          fun: (map, code) async {
-            CoreUtility.disMissProgressIndicator();
-            if (code == 200 || code == 201) {
-              // Since the response is a list of user objects, directly parse it as a list
-              List<dynamic> data = map;
-               userDetailsList = data.map((json) => UserDetails.fromJson(json)).toList();
-              // Save user details to secure storage
-
-              if(userDetailsList.isNotEmpty) {
-                String userDetailsJson = jsonEncode(userDetailsList[0]);
-                await saveUserDetails(userDetailsJson);
-
-                fullName = "${userDetailsList[0].firstName} ${userDetailsList[0].lastName}";
-                phone = userDetailsList[0].phone;
-                email = userDetailsList[0].email;
-              }
-              completer.complete(userDetailsList);
-            } else {
-              ShowSnackBar.showErrorWithAnimation(context, "$map");
-              completer.complete([]);
-            }
-            debugPrint(">>>>>>>>>user_details_res:$map");
-          });
-    } catch (e) {
-      CoreUtility.disMissProgressIndicator();
-      completer.complete([]);
-    }
-    return completer.future;
-  }
 
   assignValueToVal(String key, dynamic val) {
     switch (key) {

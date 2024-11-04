@@ -6,6 +6,7 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:intl/intl.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:rti_telangana/app/utils/dialog_helper.dart';
+import 'package:rti_telangana/app/utils/secure_storage.dart';
 
 extension EmailValidator on String {
   bool isValidEmail() {
@@ -16,6 +17,28 @@ extension EmailValidator on String {
 }
 
 class CoreUtility {
+
+  static callDialog(BuildContext context){
+    gotoLogInScreen(context);
+  }
+
+  static  gotoLogInScreen(BuildContext context) async {
+    bool isOk = await DialogHelper.showCommonPopupNew(
+      "Are you sure?",
+      "You want to Sign Out?.",
+      context,
+      barrierDismissible: true,
+      isYesOrNoPopup: true,
+    );
+    if (isOk) {
+      await saveDataInLocalStorage("false", key: "isLogIn");
+      Navigator.pushNamedAndRemoveUntil(
+        context,
+        "/logInScreen",
+            (Route<dynamic> route) => false,
+      );
+    }
+  }
 
   static showProgressIndicator() {
     EasyLoading.show(dismissOnTap: true);

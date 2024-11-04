@@ -2,9 +2,12 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
+import 'package:provider/provider.dart';
+import 'package:rti_telangana/app/app_main/rti_app.dart';
 
 import '../../../api_service/api_factory.dart';
 import '../../../api_service/http_methods.dart';
+import '../../../common_provider/user_details_provider.dart';
 import '../../../common_widget/show_snack_bar.dart';
 import '../../../data/model/UserDetails.dart';
 import '../../../utils/core_utility.dart';
@@ -13,7 +16,6 @@ import '../../../utils/secure_storage.dart';
 class StaticsDashboardProvider extends ChangeNotifier {
   List<Map<String, dynamic>> applicationStaticsData1 = [];
   List<Map<String, dynamic>> applicationStaticsData2 = [];
-  UserDetails? userDetails;
 
   Future<dynamic> callStaticsApi1(BuildContext context) async {
     Completer completer = Completer<dynamic>();
@@ -74,28 +76,12 @@ class StaticsDashboardProvider extends ChangeNotifier {
     return completer.future;
   }
 
-  Future<dynamic> getUserDetailsFromLocalStorage() async {
-    Completer completer = Completer<dynamic>();
-    try {
-      Map<String,dynamic>? jsonData = await getUserDetails();
-      if (jsonData != null) {
-        userDetails = UserDetails.fromJson(jsonData);
-        completer.complete("");
-      }
-    }catch(e){
-      debugPrint(">>>>>>>>jks$e");
-      userDetails = null;
-      completer.complete("");
-    }
-    return completer.future;
-  }
-
   callAllStaticsApis(BuildContext context) async {
     CoreUtility.showProgressIndicator();
     await Future.wait([
       callStaticsApi1(context),
       callStaticsApi2(context),
-      getUserDetailsFromLocalStorage()
+      context.read<UserDetailsProvider>(). getUserDetailsFromLocalStorage()
     ]);
     CoreUtility.disMissProgressIndicator();
     notifyListeners();
