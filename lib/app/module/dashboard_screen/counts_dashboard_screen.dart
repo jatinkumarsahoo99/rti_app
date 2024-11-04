@@ -12,7 +12,7 @@ import '../../common_widget/app_header_widget.dart';
 import '../../common_widget/welcome_widget.dart';
 import '../../utils/dialog_helper.dart';
 import 'build_dashboard_card.dart';
-import 'dashboard_counts_provider/counts_dashboard_provider.dart';
+import 'provider/counts_dashboard_provider.dart';
 
 class CountsDashboardScreen extends StatefulWidget {
   const CountsDashboardScreen({super.key});

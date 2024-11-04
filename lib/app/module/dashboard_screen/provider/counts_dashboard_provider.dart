@@ -67,10 +67,10 @@ class CountsDashboardProvider extends ChangeNotifier {
     Completer completer = Completer<dynamic>();
     try {
       // Fetch the token
-      String? accessToken = await getDataFromLocalStorage();
       HttpMethodsDio().getMethodWithToken(
           api: apiUrl,
-          token: accessToken,
+          token: ApiFactory.apiToken,
+          context: context,
           fun: (map, code) {
             CoreUtility.disMissProgressIndicator();
             if (code == 200 || code == 201) {
@@ -93,10 +93,10 @@ class CountsDashboardProvider extends ChangeNotifier {
     Completer<List<UserDetails>> completer = Completer<List<UserDetails>>();
     try {
       // Fetch the token
-      String? accessToken = await getDataFromLocalStorage();
       HttpMethodsDio().getMethodWithToken(
           api: ApiFactory.userDetails,
-          token: accessToken,
+          token: ApiFactory.apiToken,
+          context: context,
           fun: (map, code) async {
             CoreUtility.disMissProgressIndicator();
             if (code == 200 || code == 201) {
@@ -104,9 +104,11 @@ class CountsDashboardProvider extends ChangeNotifier {
               List<dynamic> data = map;
                userDetailsList = data.map((json) => UserDetails.fromJson(json)).toList();
               // Save user details to secure storage
-              String userDetailsJson = jsonEncode(userDetailsList.map((user) => user.toJson()).toList());
-              await saveUserDetails(userDetailsJson);
+
               if(userDetailsList.isNotEmpty) {
+                String userDetailsJson = jsonEncode(userDetailsList[0]);
+                await saveUserDetails(userDetailsJson);
+
                 fullName = "${userDetailsList[0].firstName} ${userDetailsList[0].lastName}";
                 phone = userDetailsList[0].phone;
                 email = userDetailsList[0].email;

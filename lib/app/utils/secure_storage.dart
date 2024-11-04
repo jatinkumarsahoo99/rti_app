@@ -14,10 +14,10 @@ Future<String?> getDataFromLocalStorage({String? key}) async {
   return await _secureStorage.read(key: key??'accessToken');
 }
 
-Future<void> saveUserDetails(dynamic userDetails) async {
+Future<void> saveUserDetails(String userDetails) async {
   // Convert userDetails to JSON string before saving
-  String userDetailsJson = jsonEncode(userDetails);
-  await _secureStorage.write(key: 'userDetails', value: userDetailsJson);
+  // String userDetailsJson = jsonEncode(userDetails);
+  await _secureStorage.write(key: 'userDetails', value: userDetails);
 }
 
 Future<dynamic> getUserDetails() async {

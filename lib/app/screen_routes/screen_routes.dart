@@ -32,7 +32,7 @@ class ScreenRoutes {
     '/forgotPassword': (context) => const ForgotPassword(),
     '/findRtiApplicationStatus': (context) => const FindRtiApplicationStatus(),
     '/countsDashboardScreen': CountsDashboardScreen.builder,
-    '/staticsDashboardScreen': (context) => const StaticsDashboardScreen(),
+    '/staticsDashboardScreen':  StaticsDashboardScreen.builder,
     '/applicationsListScreen': ApplicationsListScreen.builder,
     '/rtiApplicationDetailsStatus': (context) => const RtiApplicationDetailsStatus(),
     '/applicationDetails': (context) => const ApplicationDetailsScreen(),

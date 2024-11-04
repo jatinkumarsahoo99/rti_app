@@ -19,4 +19,8 @@ class ApiFactory{
   static String totalRejectedApplicationsUrl = "$baseUrlApplication/RejectedCount";
   static String totalFirstAppealsRejectedUrl = "$baseUrlApplication/FARejectedCount";
   static String getAllApplications = "$baseUrlApplication/GetAll";
+  static String statusCount = "$baseUrlApplication/StatusCount";
+  static String faCount = "$baseUrlApplication/FACount";
+
+  static String apiToken = "";
 }
