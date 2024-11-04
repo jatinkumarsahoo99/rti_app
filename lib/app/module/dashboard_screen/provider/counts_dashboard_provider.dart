@@ -26,36 +26,11 @@ class CountsDashboardProvider extends ChangeNotifier {
   List<UserDetails> userDetailsList = [];
   List<ApplicationInfo> applicationList = [];
 
-  Future<List<ApplicationInfo>> callApplicationListApi(BuildContext context) async{
-    Completer<List<ApplicationInfo>> completer = Completer<List<ApplicationInfo>>();
-    try{
-      String? accessToken = await getDataFromLocalStorage();
-      HttpMethodsDio().getMethodWithToken(api: ApiFactory.getAllApplications, token: accessToken, fun: (map, code) async{
-        CoreUtility.disMissProgressIndicator();
-        if (code == 200 || code == 201) {
-          // Since the response is a list of user objects, directly parse it as a list
-          List<dynamic> data = map;
-          applicationList = data.map((json) => ApplicationInfo.fromJson(json)).toList();
-          completer.complete(applicationList);
-        } else {
-          ShowSnackBar.showErrorWithAnimation(context, "$map");
-          completer.complete([]);
-        }
-        debugPrint(">>>>>>>>>application_list_res:$map");
-        debugPrint(">>>>>>>>>application_list: $applicationList");
-      });
-
-    }catch(e){
-      CoreUtility.disMissProgressIndicator();
-      completer.complete([]);
-    }
-    return completer.future;
-  }
 
   callDashBoardApis(BuildContext context) async {
     try {
       CoreUtility.showProgressIndicator();
-      await Future.wait([callUserDetailsApi(context), callAllGridApi(context),callApplicationListApi(context)]);
+      await Future.wait([callUserDetailsApi(context), callAllGridApi(context)]);
       CoreUtility.disMissProgressIndicator();
       notifyListeners();
     } catch (e) {

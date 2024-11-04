@@ -72,6 +72,7 @@ class _StaticsDashboardScreenState extends State<StaticsDashboardScreen>
               fullName: context.read<StaticsDashboardProvider>().userDetails?.firstName ?? "",
               mobileNumber: context.read<StaticsDashboardProvider>().userDetails?.phone ?? "",
               emailAddress: context.read<StaticsDashboardProvider>().userDetails?.email ?? "",
+              applicationListTap:(){ Navigator.pushNamed(context, "/applicationsListScreen");} ,
               logOutTap: gotoSplashScreen,
               advancedDrawerController: advancedDrawerController,
               userId: "",

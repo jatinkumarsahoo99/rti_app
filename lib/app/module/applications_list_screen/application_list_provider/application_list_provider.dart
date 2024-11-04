@@ -16,8 +16,7 @@ class ApplicationListProvider extends ChangeNotifier{
   Future<List<ApplicationInfo>> callApplicationListApi(BuildContext context) async{
     Completer<List<ApplicationInfo>> completer = Completer<List<ApplicationInfo>>();
     try{
-      String? accessToken = await getDataFromLocalStorage();
-      HttpMethodsDio().getMethodWithToken(api: ApiFactory.getAllApplications, token: accessToken, fun: (map, code) async{
+      HttpMethodsDio().getMethodWithToken(api: ApiFactory.getAllApplications,context:context, token: ApiFactory.apiToken, fun: (map, code) async{
         CoreUtility.disMissProgressIndicator();
         if (code == 200 || code == 201) {
           // Since the response is a list of user objects, directly parse it as a list
