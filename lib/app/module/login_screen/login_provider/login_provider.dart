@@ -37,15 +37,17 @@ class LogInProvider extends ChangeNotifier {
       CoreUtility.showProgressIndicator();
       HttpMethodsDio().postMethod(
           api: ApiFactory.logInUrl,
+          context: context,
           json: {"userName": emailTextEditingController.text, "password": passwordTextEditingController.text},
-          fun: (map, code) async {
+          fun: (map, code)  {
             CoreUtility.disMissProgressIndicator();
             if (code == 200 || code == 201) {
               //Save accessToken in secure storage
-              await saveDataInLocalStorage(map['accessToken']);
-              await saveDataInLocalStorage( "true",key: "isLogIn");
+              setDataInLocalStorage(map);
               CoreUtility.showSuccessDialog("Logged In Successfully").then((val) {
-                Navigator.pushNamedAndRemoveUntil(context, "/countsDashboardScreen", (Route<dynamic> route) => false);
+                if(context.mounted) {
+                  Navigator.pushNamedAndRemoveUntil(context, "/countsDashboardScreen", (Route<dynamic> route) => false);
+                }
               });
             } else {
               ShowSnackBar.showErrorWithAnimation(context, "$map");
@@ -55,4 +57,13 @@ class LogInProvider extends ChangeNotifier {
       CoreUtility.disMissProgressIndicator();
     }
   }
+
+  setDataInLocalStorage(dynamic map) async {
+    ApiFactory.apiToken = map['accessToken'];
+    await saveDataInLocalStorage(map['accessToken']);
+    await saveDataInLocalStorage( "true",key: "isLogIn");
+    await saveDataInLocalStorage( "${DateTime.now()}",key: "logInTime");
+  }
+
+
 }

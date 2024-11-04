@@ -1,5 +1,4 @@
-class ApiFactory{
-
+class ApiFactory {
   static String baseUrl = "https://rti.telangana.gov.in/api/api/";
   static String logInUrl = "${baseUrl}Account/GetToken";
   static String registerUrl = "${baseUrl}Account/Register";
@@ -12,4 +11,9 @@ class ApiFactory{
   static String totalFirstAppealsDeemedUrl = "${baseUrl}Application/FADeemedCount";
   static String totalRejectedApplicationsUrl = "${baseUrl}Application/RejectedCount";
   static String totalFirstAppealsRejectedUrl = "${baseUrl}Application/FARejectedCount";
+  static String statusCount = "${baseUrl}Application/StatusCount";
+  static String faCount = "${baseUrl}Application/FACount";
+
+  static String apiToken = "";
+
 }

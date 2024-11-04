@@ -99,6 +99,22 @@ class HomeScreenDrawer extends StatelessWidget {
             ),
           ),
           ListTile(
+            onTap: () {
+              Navigator.pushNamed(context, "/staticsDashboardScreen");
+
+            },
+            leading: Icon(Icons.bar_chart, color: Theme.of(context).primaryColor),
+            title: Text(
+              'Statics',
+              style: TextStyles(context).getRegularStyle().copyWith(fontSize: 15),
+            ),
+            trailing: Icon(
+              Icons.arrow_forward_ios,
+              color: Theme.of(context).primaryColor,
+              size: 15,
+            ),
+          ),
+          ListTile(
             onTap: logOutTap,
             leading: Icon(Icons.logout, color: Theme.of(context).primaryColor),
             title: Text(

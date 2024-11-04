@@ -55,6 +55,7 @@ class RegisterProvider extends ChangeNotifier {
       CoreUtility.showProgressIndicator();
       HttpMethodsDio().postMethod(
           api: ApiFactory.registerUrl,
+          context: context,
           json: {
             "email": emailTextEditingController.text,
             "password": passwordTextEditingController.text,

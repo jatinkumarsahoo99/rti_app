@@ -8,7 +8,8 @@ import 'indicator.dart';
 class PieChartWidget extends StatefulWidget {
   final List<Map<String, dynamic>> data; // List of title and percentage
   final bool showText; // Control whether to show the text in the chart
-  const PieChartWidget({super.key, required this.data,this.showText = false});
+  final VoidCallback onRefresh;
+  const PieChartWidget({super.key, required this.data,this.showText = false, required this.onRefresh});
 
   @override
   State<StatefulWidget> createState() => PieChart2State();
@@ -20,10 +21,11 @@ class PieChart2State extends State<PieChartWidget> {
   @override
   Widget build(BuildContext context) {
     return AspectRatio(
-      aspectRatio: 1.25,
+      aspectRatio: 1.0,
       child: Column(
         children: [
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
                 "Application Wise Status",
@@ -33,6 +35,9 @@ class PieChart2State extends State<PieChartWidget> {
                   color: const Color(0xFF000000),
                 ),
               ),
+              InkWell(
+                  onTap: widget.onRefresh,
+                  child: const Icon(Icons.refresh,size: 18,))
             ],
           ),
           Row(
@@ -115,7 +120,7 @@ class PieChart2State extends State<PieChartWidget> {
       return PieChartSectionData(
         color: getColor(entry.key),
         value: entry.value['percentage'],
-        title: widget.showText? '${entry.value['percentage']}%':"",
+        title: widget.showText? '${entry.value['percentage']}':"",
         radius: radius,
         titleStyle: TextStyle(
           fontSize: fontSize,
