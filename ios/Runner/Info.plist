@@ -34,6 +34,17 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSPhotoLibraryUsageDescription</key>
+    <string>We need access to your photos to save and read files.</string>
+
+    <key>NSDocumentsFolderUsageDescription</key>
+    <string>We need access to your documents folder to save and read files.</string>
+
+    <key>UIFileSharingEnabled</key>
+    <true/>
+
+    <key>LSSupportsOpeningDocumentsInPlace</key>
+    <true/>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

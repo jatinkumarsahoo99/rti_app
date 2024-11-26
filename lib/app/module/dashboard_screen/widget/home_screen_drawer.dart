@@ -47,7 +47,7 @@ class HomeScreenDrawer extends StatelessWidget {
                               'https://i.pngimg.me/thumb/f/720/c3f2c592f9.jpg',
                               fit: BoxFit.cover,
                               errorBuilder: (BuildContext context, Object obj, StackTrace? stack) {
-                                return Image.asset("assets/images/man.jpg");
+                                return Image.asset("assets/images/man.png");
                               },
                             )),
                       ),

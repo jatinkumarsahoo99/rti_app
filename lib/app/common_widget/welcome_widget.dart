@@ -27,7 +27,8 @@ class WelcomeWidget extends StatelessWidget {
                 decoration:  const BoxDecoration(
                   shape: BoxShape.circle,
                   image: DecorationImage(
-                    image: NetworkImage('https://i.pngimg.me/thumb/f/720/c3f2c592f9.jpg'),
+                    // image: NetworkImage('https://i.pngimg.me/thumb/f/720/c3f2c592f9.jpg'),
+                    image: AssetImage("assets/images/man.png"),
                     fit: BoxFit.fill,
                   ),
                 ),
