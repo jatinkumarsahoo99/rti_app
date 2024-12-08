@@ -30,8 +30,8 @@ class CountsDashboardProvider extends ChangeNotifier {
   callDashBoardApis(BuildContext context) async {
     try {
       CoreUtility.showProgressIndicator();
-      await Future.wait([callAllGridApi(context)]);
-      CoreUtility.disMissProgressIndicator();
+      await callAllGridApi(context);
+      await CoreUtility.disMissProgressIndicator();
       notifyListeners();
     } catch (e) {
       ShowSnackBar.showErrorWithAnimation(context, "Something Went Wrong $e");
@@ -49,7 +49,7 @@ class CountsDashboardProvider extends ChangeNotifier {
           fun: (map, code) {
             CoreUtility.disMissProgressIndicator();
             if (code == 200 || code == 201) {
-              dynamic count = map['data'];
+              dynamic count = map;
               assignValueToVal(key, count);
               completer.complete(count);
             } else {

@@ -18,7 +18,7 @@ Future<void> main() async {
     systemNavigationBarDividerColor: Colors.transparent,
     systemNavigationBarIconBrightness: Brightness.dark,
   ));
-  Logger.initLogs();
+  // Logger.initLogs();
   await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp, DeviceOrientation.portraitDown])
       .then((_) => runApp(_setAllProviders()));
 

@@ -49,8 +49,8 @@ class CoreUtility {
     return true;
   }
 
-  static disMissProgressIndicator() {
-    EasyLoading.dismiss();
+  static disMissProgressIndicator() async {
+    await EasyLoading.dismiss();
   }
 
   static String generateRandomString(int length) {

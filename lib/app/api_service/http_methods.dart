@@ -21,11 +21,12 @@ class HttpMethodsDio {
           requestBody: true,
           logPrint: (data) {
             if (kDebugMode) {
-              Logger.setInfoLogs(
+              /*Logger.setInfoLogs(
                 'HttpMethodsDio',
                 'API CALLING',
                 'message: $data',
-              );
+              );*/
+              debugPrint(">>>>>>>>$data");
             }
           })); // Add logging (optional)
     // debugPrint('MySingleton instance created');
@@ -88,11 +89,12 @@ class HttpMethodsDio {
           fun(response.data, response.statusCode);
         } catch (e) {
           if (kDebugMode) {
-            Logger.setErrorLogs(
+            /*Logger.setErrorLogs(
               'HttpMethodsDio',
               'getMapping',
               'Error: ${e.toString()}',
-            );
+            );*/
+            print(">>>>>>>$e");
           }
         }
       } else if (response.statusCode == 500) {
@@ -142,11 +144,7 @@ class HttpMethodsDio {
             fun(response.data, response.statusCode);
           } catch (e) {
             if (kDebugMode) {
-              Logger.setErrorLogs(
-                'HttpMethodsDio',
-                'getMapping',
-                'Error: ${e.toString()}',
-              );
+              print(">>>>>>>$e");
             }
           }
         } else if (response.statusCode == 500) {
@@ -182,11 +180,7 @@ class HttpMethodsDio {
           fun(response.data);
         } catch (e) {
           if (kDebugMode) {
-            Logger.setErrorLogs(
-              'HttpMethodsDio',
-              'getMapping',
-              'Error: ${e.toString()}',
-            );
+            print(">>>>>>>$e");
           }
         }
       } else if (response.statusCode == 500) {
@@ -237,11 +231,7 @@ class HttpMethodsDio {
             fun(response.data, response.statusCode);
           } catch (e) {
             if (kDebugMode) {
-              Logger.setErrorLogs(
-                'HttpMethodsDio',
-                'postMapping',
-                'Error: ${e.toString()}',
-              );
+              print(">>>>>>>$e");
             }
           }
         }
@@ -290,11 +280,7 @@ class HttpMethodsDio {
           fun(response.data, response.statusCode);
         } catch (e) {
           if (kDebugMode) {
-            Logger.setErrorLogs(
-              'HttpMethodsDio',
-              'postMapping',
-              'Error: ${e.toString()}',
-            );
+            print(">>>>>>>$e");
           }
         }
       }
@@ -334,11 +320,7 @@ class HttpMethodsDio {
           fun(response.data, response.statusCode);
         } catch (e) {
           if (kDebugMode) {
-            Logger.setErrorLogs(
-              'HttpMethodsDio',
-              'putMethod',
-              'Error: ${e.toString()}',
-            );
+            print(">>>>>>>$e");
           }
         }
       } else {

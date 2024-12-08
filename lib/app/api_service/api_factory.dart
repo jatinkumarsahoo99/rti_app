@@ -8,19 +8,22 @@ class ApiFactory{
   static String registerUrl = "$baseUrlAccount/Register";
 
   static var baseUrlApplication = "$baseUrl/Application";
+  static var baseUrlDashBoard = "$baseUrl/Dashboard";
+  static var baseUrlContact = "$baseUrl/Contact";
+  static var baseUrlFirstAppeal = "$baseUrl/FirstAppeal";
 
-  static String userDetails = "$baseUrlApplication/UserDetails";
-  static String totalSubmittedApplicationsUrl = "$baseUrlApplication/SubmittedCount";
-  static String totalFirstAppealsSubmittedUrl = "$baseUrlApplication/FASubmittedCount";
-  static String totalDisposedApplicationsUrl = "$baseUrlApplication/DisposedCount";
-  static String totalFirstAppealsDisposedUrl = "$baseUrlApplication/FADisposedCount";
-  static String totalDeemedApplicationsUrl = "$baseUrlApplication/DeemedCount";
-  static String totalFirstAppealsDeemedUrl = "$baseUrlApplication/FADeemedCount";
-  static String totalRejectedApplicationsUrl = "$baseUrlApplication/RejectedCount";
-  static String totalFirstAppealsRejectedUrl = "$baseUrlApplication/FARejectedCount";
+  static String userDetails = "$baseUrlDashBoard/UserDetails";
+  static String totalSubmittedApplicationsUrl = "$baseUrlDashBoard/SubmittedCount";
+  static String totalFirstAppealsSubmittedUrl = "$baseUrlDashBoard/FASubmittedCount";
+  static String totalDisposedApplicationsUrl = "$baseUrlDashBoard/DisposedCount";
+  static String totalFirstAppealsDisposedUrl = "$baseUrlDashBoard/FADisposedCount";
+  static String totalDeemedApplicationsUrl = "$baseUrlDashBoard/DeemedCount";
+  static String totalFirstAppealsDeemedUrl = "$baseUrlDashBoard/FADeemedCount";
+  static String totalRejectedApplicationsUrl = "$baseUrlDashBoard/RejectedCount";
+  static String totalFirstAppealsRejectedUrl = "$baseUrlDashBoard/FARejectedCount";
   static String getAllApplications = "$baseUrlApplication/GetAll";
-  static String statusCount = "$baseUrlApplication/StatusCount";
-  static String faCount = "$baseUrlApplication/FACount";
+  static String statusCount = "$baseUrlDashBoard/StatusCount";
+  static String faCount = "$baseUrlDashBoard/FACount";
 
   static String apiToken = "";
 }

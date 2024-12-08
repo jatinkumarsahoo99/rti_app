@@ -20,7 +20,7 @@ class ApplicationListProvider extends ChangeNotifier{
         CoreUtility.disMissProgressIndicator();
         if (code == 200 || code == 201) {
           // Since the response is a list of user objects, directly parse it as a list
-          List<dynamic> data = map;
+          List<dynamic> data = map['applications']??[];
           applicationList = data.map((json) => ApplicationInfo.fromJson(json)).toList();
           notifyListeners();
           completer.complete(applicationList);
